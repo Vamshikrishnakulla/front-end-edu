@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free study tutorials avaliable online">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="creators: Vamshi K">
+    <title>Learning Hub</title>
+    <link rel="icon" href="images/favicon.ico">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&family=Ubuntu:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/navbar.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "montserrat-bold", Arial;
+            margin: 0;
+            /* https://source.unsplash.com/1550x800/?notes */
+            background-image: url('images/contactimage1.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        .container {
+            padding: 40px 20% 0 20%;
+        }
+
+        .form-lable,
+        .form-control {
+            display: block;
+
+        }
+
+        .form-control:focus {
+            border: 3px solid green;
+            box-shadow: 2px 5px 8px 5px rgb(216, 210, 196);
+        }
+
+        .form-control {
+            width: 100%;
+            margin: 20px 0;
+            padding: 15px;
+            border: 3px solid black;
+            border-radius: 10px;
+        }
+
+        footer {
+
+            text-align: center;
+            padding: 18px;
+            background-color: #333;
+            overflow: auto;
+        }
+
+        .container button {
+            /*float: right;*/
+            margin: 10px 0;
+            padding: 7px 15px;
+            border: 2px solid grey;
+            background-color: aqua;
+            border-radius: 10px;
+        }
+
+        @media screen and (max-width: 700px) {
+            .container {
+
+                padding: 20px 20px 0 20px;
+                margin-bottom: 50px;
+            }
+
+            .container button {
+                padding: 5px 10px;
+            }
+
+            footer {
+                position: static;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <!-- <span id="logo">LearningHub</span> -->
+        <span id="logo"><img class="logoimg" src="images/logoimg.jpeg" alt="logo.jpeg"></span>
+        <button id="logo-div-open" class="logoitems" onclick="changenav('1')" aria-label="navbars">
+            <span class="logoitem"></span>
+            <span class="logoitem"></span>
+            <span class="logoitem"></span>
+        </button>
+
+
+
+        <button id="logo-div-close" class="logoitems" onclick="changenav('0')" aria-label="navbars">
+            <span class="logoitem"></span>
+            <span class="logoitem"></span>
+            <span class="logoitem"></span>
+        </button>
+
+        <ul id="navdisplay">
+            <li class="ali" style="padding: 5px; height: 50px;"><img src="images/logoimg.jpeg"
+                    style="width:120px; height:40px; margin:0px; border-radius:0px;" alt="logo.jpeg"></li>
+            <!-- <li class="ali"><a href="project1.php">LearningHub</a></li> -->
+            <li class="ali"><a href="category.html">Home</a></li>
+            <li class="ali"><a href="about.html">About</a></li>
+            <li class="ali dropdown">
+                <a href="#">Subjects</a>
+                <div class="dropdown-content">
+                    <a href="sub_category_transparent.html">B.tech I-I </a>
+                    <a href="sub_category_transparent.html">B.tech I-II </a>
+                    <a href="sub_category_transparent.html">B.tech II-I </a>
+                    <a href="sub_category_transparent.html">B.tech II-II </a>
+                    <a href="sub_category_transparent.html">B.tech ,.... etc,. </a>
+                </div>
+            </li>
+            <li class="ali"><a href="contact.html">ContactUs</a></li>
+            <div class="right">
+
+                <li><input type="search" placeholder="Search Q&A..."></li>
+                <li class="searchbutton"><a href="#">Search</a></li>
+                <li><a href="signup.html">SignUp</a></li>
+                <li><a href="login.html">Login</a></li>
+
+            </div>
+        </ul>
+    </nav>
+
+    <form>
+        <div class="container">
+            <h1 style="text-align: center;">Please, enter your details here.</h1>
+            <h1 class="text-center">SignUp Form : </h1>
+            <input style="display:none;" type="text" class="form-control" name="date" id="datatime" />
+            <div class="mb-3">
+                <label for="contactname" class="form-label">Name :</label>
+                <input type="text" class="form-control" name="name" id="contactname" maxlength="40"
+                    onfocusout="window.localStorage.setItem('name', value);" required>
+            </div>
+            <div class="mb-3">
+                <label for="add" class="form-label">Admission No :</label>
+                <input type="text" class="form-control" name="addno" id="add" maxlength="20"
+                    onfocusout="localStorage.setItem('addno', value);" required>
+            </div>
+            <div class="mb-3">
+                <label for="college" class="form-label">College Name :</label>
+                <input type="text" class="form-control" name="college" id="college" maxlength="40"
+                    onfocusout="window.localStorage.setItem('college', value);" required>
+            </div>
+            <div class="mb-3">
+                <label for="uni" class="form-label">University :</label>
+                <input type="text" class="form-control" name="university" id="uni" maxlength="40"
+                    onfocusout="window.localStorage.setItem('university', value);" required>
+            </div>
+            <div class="mb-3">
+                <label for="branch" class="form-label">Branch :</label>
+                <input type="text" class="form-control" name="branch" id="branch" maxlength="20"
+                    onfocusout="window.localStorage.setItem('branch', value);" required>
+            </div>
+            <div class="mb-3">
+                <label for="contact_email" class="form-label">Email address :</label>
+                <input type="email" class="form-control" name="email" id="contact_email" maxlength="40"
+                    placeholder="name@example.com" onfocusout="localStorage.setItem('email', value);" required>
+            </div>
+            <div class="mb-3">
+                <label for="text_area" class="form-label">password : </label>
+                <input type="password" class="form-control" name="password" maxlength="20" id="text_area"
+                    onfocusout="localStorage.setItem('key', value);" required>
+            </div>
+            <button type="submit" onclick="checkdata()" id="sub" class="btn">Submit</button>
+        </div>
+    </form>
+    <br>
+    <footer>
+        <span>&#169;Getthrough.com</span>
+        <span>▶️Projectbeclearedlearninghub@gmail.com</span>
+        <span>📚facebook.com</span>
+    </footer>
+    <script>
+        const datatime = new Date();
+        //alert(datatime);
+        document.querySelector("#datatime").value = datatime.toUTCString();
+        //below statement is not working for forms input element.
+        //document.getElementById("dataTime").value = datatime;
+        function changenav(val) {
+            if (val == 1) {
+                document.getElementById("logo").style.display = "none";
+                document.getElementById("logo-div-open").style.display = "none";
+                document.getElementById("logo-div-close").style.display = "block";
+                document.getElementById("logo-div-close").style.border = "1px solid rgb(209, 204, 204)";
+                document.getElementById("navdisplay").style.display = "block";
+
+            }
+            if (val == 0) {
+                document.getElementById("logo").style.display = "inline-block";
+                document.getElementById("logo-div-close").style.display = "none";
+                document.getElementById("logo-div-open").style.display = "block";
+                document.getElementById("navdisplay").style.display = "none";
+                // important for responsiveness of a website's header.
+                window.location.reload();
+            }
+        }
+        //<!-- google form info  -->
+        function checkdata() {
+            if (localStorage.getItem("name") && localStorage.getItem("addno") && localStorage.getItem("email") && localStorage.getItem("key") && localStorage.getItem("college")) {
+                let form = document.querySelector("form");
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    document.querySelector("#sub").disabled = true;
+                    document.querySelector("#sub").innerHTML = "submitting...";
+                    let data = new FormData(form);
+                    fetch('https://script.google.com/macros/s/AKfycbzWJhEMSozasTWmOGaBO1l9ZI7Cvl6OrMKLLzk1OwTR6a8uKdXomIBc3s2d5Pju4ZaI/exec', {
+                        method: "POST",
+                        body: data
+                    })
+                        .then(res => res.text())
+                        .then(data => {
+                            document.querySelector("#sub").innerHTML = "success";
+                            alert('Registered/{already} sucessfully.Please Login now.');
+                            window.location.assign("login.html");
+                        });
+                })
+                //window.location.reload();
+            }
+            else {
+                alert('Please, Fill all the required feilds.');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

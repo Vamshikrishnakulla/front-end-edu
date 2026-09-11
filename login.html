@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free study tutorials avaliable online">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="creators: Vamshi K">
+    <title>Learning Hub</title>
+    <link rel="icon" href="images/favicon.ico">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&family=Ubuntu:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/navbar.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "montserrat-bold", Arial;
+            margin: 0;
+            /* https://source.unsplash.com/1550x800/?notes */
+            background-image: url('images/contactimage1.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            color: white;
+        }
+
+        .container {
+            padding: 40px 100px 0 100px;
+        }
+
+        .form-lable,
+        .form-control {
+            display: block;
+
+        }
+
+        .form-control:focus {
+            border: 3px solid green;
+            box-shadow: 2px 5px 8px 5px rgb(216, 210, 196);
+        }
+
+        .form-control {
+            width: 100%;
+            margin: 20px 0;
+            padding: 15px;
+            border: 3px solid black;
+            border-radius: 10px;
+        }
+
+        footer {
+
+            text-align: center;
+            padding: 18px;
+            background-color: #333;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow: auto;
+        }
+
+        .container button {
+            /*float: right;*/
+            margin: 10px 0;
+            padding: 7px 15px;
+            border: 2px solid grey;
+            background-color: aqua;
+            border-radius: 10px;
+        }
+
+        @media screen and (max-width: 700px) {
+            .container {
+
+                padding: 20px 20px 0 20px;
+                margin-bottom: 50px;
+            }
+
+            .container button {
+                padding: 5px 10px;
+            }
+
+            footer {
+                position: static;
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <!-- <span id="logo">LearningHub</span> -->
+        <span id="logo"><img class="logoimg" src="images/logoimg.jpeg" alt="logo.jpeg"></span>
+        <button id="logo-div-open" class="logoitems" onclick="changenav(1)" aria-label="navbars">
+            <span class="logoitem"></span>
+            <span class="logoitem"></span>
+            <span class="logoitem"></span>
+        </button>
+
+
+
+        <button id="logo-div-close" class="logoitems" onclick="changenav(0)" aria-label="navbars">
+            <span class="logoitem"></span>
+            <span class="logoitem"></span>
+            <span class="logoitem"></span>
+        </button>
+
+        <ul id="navdisplay">
+            <li class="ali" style="padding: 5px; height: 50px;"><img src="images/logoimg.jpeg"
+                    style="width:120px; height:40px; margin:0px; border-radius:0px;" alt="logo.jpeg"></li>
+            <!-- <li class="ali"><a href="project1.php">LearningHub</a></li> -->
+            <li class="ali"><a href="category.html">Home</a></li>
+            <li class="ali"><a href="about.html">About</a></li>
+            <li class="ali dropdown">
+                <a href="#">Subjects</a>
+                <div class="dropdown-content">
+                    <a href="sub_category_transparent.html">B.tech I-I </a>
+                    <a href="sub_category_transparent.html">B.tech I-II </a>
+                    <a href="sub_category_transparent.html">B.tech II-I </a>
+                    <a href="sub_category_transparent.html">B.tech II-II </a>
+                    <a href="sub_category_transparent.html">B.tech ,.... etc,. </a>
+                </div>
+            </li>
+            <li class="ali"><a href="contact.html">ContactUs</a></li>
+            <div class="right">
+
+                <li><input type="search" placeholder="Search Q&A..."></li>
+                <li class="searchbutton"><a href="#">Search</a></li>
+                <li><a href="signup.html">SignUp</a></li>
+                <li><a href="login.html">Login</a></li>
+
+            </div>
+        </ul>
+    </nav>
+
+
+    <div class="container">
+        <h1 style="text-align: center;">Please, enter your details here.</h1>
+        <h1>Login details : </h1>
+        <div>
+            <label for="contact_email" class="form-label">Email address : </label>
+            <input type="email" class="form-control" name="Email" id="contact_email" required>
+        </div>
+        <div>
+            <label for="password" class="form-label">Password : </label>
+            <input type="password" class="form-control" name="pass" id="password" required>
+        </div>
+        <button onclick="check()" class="btn">Submit</button>
+    </div>
+
+    <br>
+    <footer>
+        <!-- LearningHub -->
+        <span>&#169;Getthrough.com</span>
+        <span>▶️Projectbeclearedlearninghub@gmail.com</span>
+        <span>📚facebook.com</span>
+    </footer>
+    <script>
+        function changenav(val) {
+            if (val == 1) {
+                document.getElementById("logo").style.display = "none";
+                document.getElementById("logo-div-open").style.display = "none";
+                document.getElementById("logo-div-close").style.display = "block";
+                document.getElementById("logo-div-close").style.border = "2px solid rgb(209, 204, 204)";
+                document.getElementById("navdisplay").style.display = "block";
+
+            }
+            if (val == 0) {
+                document.getElementById("logo").style.display = "inline-block";
+                document.getElementById("logo-div-close").style.display = "none";
+                document.getElementById("logo-div-open").style.display = "block";
+                document.getElementById("navdisplay").style.display = "none";
+                // important for responsiveness of a website's header.
+                window.location.reload();
+            }
+        }
+        function check() {
+            var email = document.getElementById("contact_email").value;
+            var pass = document.getElementById("password").value;
+            var actualemail = localStorage.getItem("email");
+            var actualpass = localStorage.getItem("key");
+            if ((actualemail == undefined) && (actualpass == undefined)) {
+                alert("please signup for the website and login again.");
+                window.location.assign("signup.html");
+            }
+            else if ((actualemail == email) && (actualpass == pass)) {
+                alert("Login success, you can now access the syllabus.");
+                window.location.assign("category.html");
+            }
+            else {
+                alert("incorrect details, please enter correct details.");
+
+            }
+        }
+    </script>
+</body>
+
+</html>

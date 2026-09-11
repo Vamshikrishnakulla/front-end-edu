@@ -1,0 +1,111 @@
+body {
+    font-family: "montserrat-black", Arial;
+    margin: 0;
+}
+
+div.top {
+    width: 100%;
+    height: 300px;
+    background-color: lawngreen;
+    position: relative;
+    overflow: hidden;
+}
+
+.top .top-arrows {
+    position: absolute;
+    width: 40px;
+    color: rgb(240, 226, 226);
+    border: 1px solid rgb(228, 225, 225);
+    border-radius: 5px;
+    font-weight: 900;
+    top: 180px;
+    font-size: 2em;
+    text-align: center;
+    right: 5px;
+    z-index: 1;
+}
+
+h1 {
+    /* font-family: 'Sacramento', cursive, "montserrat-black", Arial; */
+    color: #66BFBF;
+    text-align: center;
+    margin: 12px;
+}
+
+div.gallery {
+    border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+    border: 1px solid #777;
+    box-shadow: 0 8px 16px 0 green;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+    opacity: 0.8;
+}
+
+div.gallery img:hover {
+    opacity: 1;
+}
+
+div.gallery a {
+    text-decoration: none;
+}
+
+div.desc {
+    /* font-family: 'Sacramento', cursive; */
+    color: #66BFBF;
+    padding: 15px;
+    text-align: center;
+}
+
+div.hold {
+    width: 90%;
+    margin: auto;
+}
+
+.responsive {
+    padding: 0px 20px;
+    float: left;
+    width: 24.99999%;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.footer {
+    font-size: 1rem;
+    padding: 10px 5px;
+    text-align: center;
+    color: white;
+    background: #333;
+    margin-top: 20px;
+    overflow: auto;
+}
+
+@media only screen and (max-width: 900px){
+    .responsive {
+        width: 49.99999%;
+        margin: 10px 0;
+    }
+    #logo {
+        margin:0;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .responsive {
+        width: 100%;
+    }
+    div.gallery img {
+        opacity: 1;
+    }
+    div.gallery {
+        box-shadow: 0 8px 16px 0 green;
+    }
+}
