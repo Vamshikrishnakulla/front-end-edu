@@ -94,50 +94,7 @@
 
 <body>
 
-    <nav>
-        <!-- <span id="logo">LearningHub</span> -->
-        <span id="logo"><img class="logoimg" src="images/logoimg.jpeg" alt="logo.jpeg"></span>
-        <button id="logo-div-open" class="logoitems" onclick="changenav(1)" aria-label="navbars">
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-        </button>
-
-
-
-        <button id="logo-div-close" class="logoitems" onclick="changenav(0)" aria-label="navbars">
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-        </button>
-
-        <ul id="navdisplay">
-            <li class="ali" style="padding: 5px; height: 50px;"><img src="images/logoimg.jpeg"
-                    style="width:120px; height:40px; margin:0px; border-radius:0px;" alt="logo.jpeg"></li>
-            <!-- <li class="ali"><a href="project1.php">LearningHub</a></li> -->
-            <li class="ali"><a href="category.html">Home</a></li>
-            <li class="ali"><a href="about.html">About</a></li>
-            <li class="ali dropdown">
-                <a href="#">Subjects</a>
-                <div class="dropdown-content">
-                    <a href="sub_category_transparent.html">B.tech I-I </a>
-                    <a href="sub_category_transparent.html">B.tech I-II </a>
-                    <a href="sub_category_transparent.html">B.tech II-I </a>
-                    <a href="sub_category_transparent.html">B.tech II-II </a>
-                    <a href="sub_category_transparent.html">B.tech ,.... etc,. </a>
-                </div>
-            </li>
-            <li class="ali"><a href="contact.html">ContactUs</a></li>
-            <div class="right">
-
-                <li><input type="search" placeholder="Search Q&A..."></li>
-                <li class="searchbutton"><a href="#">Search</a></li>
-                <li><a href="signup.html">SignUp</a></li>
-                <li><a href="login.html">Login</a></li>
-
-            </div>
-        </ul>
-    </nav>
+    <div id="header-placeholder"></div>
 
 
     <div class="container">
@@ -151,54 +108,16 @@
             <label for="password" class="form-label">Password : </label>
             <input type="password" class="form-control" name="pass" id="password" required>
         </div>
-        <button onclick="check()" class="btn">Submit</button>
+        <button class="btn">Submit</button>
     </div>
 
     <br>
-    <footer>
-        <!-- LearningHub -->
-        <span>&#169;Getthrough.com</span>
-        <span>▶️Projectbeclearedlearninghub@gmail.com</span>
-        <span>📚facebook.com</span>
-    </footer>
-    <script>
-        function changenav(val) {
-            if (val == 1) {
-                document.getElementById("logo").style.display = "none";
-                document.getElementById("logo-div-open").style.display = "none";
-                document.getElementById("logo-div-close").style.display = "block";
-                document.getElementById("logo-div-close").style.border = "2px solid rgb(209, 204, 204)";
-                document.getElementById("navdisplay").style.display = "block";
+    <div id="footer-placeholder"></div>
 
-            }
-            if (val == 0) {
-                document.getElementById("logo").style.display = "inline-block";
-                document.getElementById("logo-div-close").style.display = "none";
-                document.getElementById("logo-div-open").style.display = "block";
-                document.getElementById("navdisplay").style.display = "none";
-                // important for responsiveness of a website's header.
-                window.location.reload();
-            }
-        }
-        function check() {
-            var email = document.getElementById("contact_email").value;
-            var pass = document.getElementById("password").value;
-            var actualemail = localStorage.getItem("email");
-            var actualpass = localStorage.getItem("key");
-            if ((actualemail == undefined) && (actualpass == undefined)) {
-                alert("please signup for the website and login again.");
-                window.location.assign("signup.html");
-            }
-            else if ((actualemail == email) && (actualpass == pass)) {
-                alert("Login success, you can now access the syllabus.");
-                window.location.assign("category.html");
-            }
-            else {
-                alert("incorrect details, please enter correct details.");
 
-            }
-        }
-    </script>
+    <script src="scripts/login.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/components.js"></script>
 </body>
 
 </html>

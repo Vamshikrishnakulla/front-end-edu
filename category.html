@@ -23,56 +23,11 @@
 
 <body>
     <!-- nav-bar with media query's applied and with logo appearence on collapse and toggling with written java-scripts-->
-    <nav>
-        <!-- logo on collapse -->
-        <span id="logo"><img class="logoimg" src="images/logoimg.jpeg" alt="logo.jpeg"></span>
-        <!-- button to toggle the collapsed nav bar -->
-        <!-- <span id="logo">LearningHub</span> -->
-       
-        <button id="logo-div-open" class="logoitems" onclick="changenav(1)" aria-label="navbars">
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-        </button>
-        
-        <button id="logo-div-close" class="logoitems" onclick="changenav(0)" aria-label="navbars">
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-        </button>
-
-        <ul id="navdisplay">
-          <li class="ali" style="padding: 5px; height: 50px;"><img src="images/logoimg.jpeg" style="width:120px; height:40px; margin:0px; border-radius:0px;" alt="logo.jpeg"></li>
-          <!-- <li class="ali"><a href="project1.php">LearningHub</a></li> -->
-          <li class="ali"><a href="category.html">Home</a></li>
-          <li class="ali"><a href="about.html">About</a></li>
-          <!-- dropdown on hover -->
-          <li class="ali dropdown">
-            <a href="#">Subjects</a>
-            <div class="dropdown-content">
-              <a href="sub_category_transparent.html">B.tech I-I </a>
-              <a href="sub_category_transparent.html">B.tech I-II </a>
-              <a href="sub_category_transparent.html">B.tech II-I </a>
-              <a href="sub_category_transparent.html">B.tech II-II </a>
-              <a href="sub_category_transparent.html">B.tech ,.... etc,. </a>
-            </div>
-          </li>
-          <li class="ali"><a href="contact.html">ContactUs</a></li>
-          <div class="right">
-            <!-- to be designed search, signup, login -->
-            <li><input type="search" placeholder="Search Q&A..."></li>
-            <li class="searchbutton"><a href="#">Search</a></li>
-            <li><a href="signup.html">SignUp</a></li>
-            <li><a href="login.html">Login</a></li>
-          </div>
-          
-        </ul>
-          
-    </nav>
+    <div id="header-placeholder"></div>
     <!-- background-images(3) with two arrows to change the bg-images, loading starting bg-image with api and rest are saved images-->
     <div class="top">
-        <span onmouseover="sel1(1)" class="top-arrows">&#62;</span>
-        <span onmouseover="sel1(2)" class="top-arrows" style="left:5px;">&#60;</span>
+        <span class="top-arrows">&#62;</span>
+        <span class="top-arrows" style="left:5px;">&#60;</span>
         <!-- src="https://source.unsplash.com/1350x300/?notes"  -->
         <img src="images/top-image1.jpg" width="1550" height="300" class="top-img" alt="Beclear">
         <img src="images/top-image2.jpg" width="1550" height="300" style="display:none;" class="top-img" alt="NOTES-1">
@@ -96,10 +51,10 @@
 
         <div class="responsive">
             <div class="gallery">
-                <a target="_self" onclick="alert('Currently, the service is only avaliable for the branch CSE and will get updated for other braches, Soon!!..,')" href="#">
+                <a target="_self" href="#">
                     <img src="images/cardimageece.jpg" alt="I-II" width="600" height="400">
                 </a>
-                <a target="_self" onclick="alert('Currently, the service is only avaliable for the branch CSE and will get updated for other braches, Soon!!..,')" href="#">
+                <a target="_self" href="#">
                     <div class="desc">ECE</div>
                 </a>
             </div>
@@ -107,10 +62,10 @@
 
         <div class="responsive">
             <div class="gallery">
-                <a target="_self" onclick="alert('Currently, the service is only avaliable for the branch CSE and will get updated for other braches, Soon!!..,')" href="#">
+                <a target="_self" href="#">
                     <img src="images/cardimageeee.jpg" alt="II-I" width="600" height="400">
                 </a>
-                <a target="_self" onclick="alert('Currently, the service is only avaliable for the branch CSE and will get updated for other braches, Soon!!..,')" href="#">
+                <a target="_self" href="#">
                     <div class="desc">EEE</div>
                 </a>
             </div>
@@ -118,10 +73,10 @@
 
         <div class="responsive">
             <div class="gallery">
-                <a target="_self" onclick="alert('Currently, the service is only avaliable for the branch CSE and will get updated for other braches, Soon!!..,')" href="#">
+                <a target="_self" href="#">
                     <img src="images/cardimagecivil.jpg" alt="II-II" width="600" height="400">
                 </a>
-                <a target="_self" onclick="alert('Currently, the service is only avaliable for the branch CSE and will get updated for other braches, Soon!!..,')" href="#">
+                <a target="_self" href="#">
                     <div class="desc">CIVIL</div>
                 </a>
             </div>
@@ -130,76 +85,13 @@
     <!-- div to clear the left floated element -->
     <div class="clearfix"></div>
     <br>
-    <div class="footer">
-        <span>&#169;Getthrough.com</span>
-        <span>▶️Projectbeclearedlearninghub@gmail.com</span>
-        <span>📚facebook.com</span>
-     </div>
-
-    <script>
-        //sending form
-        
-        // to change the background-images on hover by arrows.
-        function sel1(k) {
+    <div id="footer-placeholder"></div>
 
 
-            var x = document.getElementsByClassName("top-img");
 
 
-            for (var i = 0; i < x.length; i++) {
-                if (i == k) {
-                    x[i].style.display = "block";
-                }
-                else {
-                    x[i].style.display = "none";
-                }
-            }
-
-        }
-
-    </script>
-    <script>
-        // alert("Currently, the service is only avaliable for the branch CSE and will get updated for other braches, Soon!!..,")
-        //nav bar toggling on collapse[on changed screen sizes] single tap open;
-        //document.getElementById("navdisplay").style.display = "block";
-        function changenav(val) {
-            if(val==1){
-                document.getElementById("logo").style.display = "none";
-                document.getElementById("logo-div-open").style.display = "none";
-                document.getElementById("logo-div-close").style.display = "block";
-                document.getElementById("logo-div-close").style.border = "2px solid rgb(209, 204, 204)";
-                document.getElementById("navdisplay").style.display = "block";
-                
-            }
-            if(val==0){
-                document.getElementById("logo").style.display = "inline-block";
-                document.getElementById("logo-div-close").style.display = "none";
-                document.getElementById("logo-div-open").style.display = "block";
-                document.getElementById("navdisplay").style.display = "none";
-                // important for responsiveness of a website's header.
-                window.location.reload();
-            }
-
-            
-            //document.getElementsByClassName("logoitems").display = none;
-            
-        }
-        // function changenav(){
-            
-        //     document.getElementById("logo").style.display = "none";
-        //     //document.getElementsByClassName("logoitems").display = none;
-        //     document.getElementById("navdisplay").style.display = "block";
-        // }
-
-        // //nav bar toggling on collapse[on changed screen sizes] double tap close;
-        // function changenav2(){
-            
-        //     document.getElementById("logo").style.display = "inline-block";
-        //     //document.getElementsByClassName("logoitems").display = none;
-        //     document.getElementById("navdisplay").style.display = "none";
-        //     window.location.reload();
-        // }
-      </script>
+    <script src="scripts/category.js"></script>
+    <script src="scripts/components.js"></script>
 </body>
 
 </html>

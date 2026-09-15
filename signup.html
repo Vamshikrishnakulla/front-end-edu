@@ -90,50 +90,7 @@
 
 <body>
 
-    <nav>
-        <!-- <span id="logo">LearningHub</span> -->
-        <span id="logo"><img class="logoimg" src="images/logoimg.jpeg" alt="logo.jpeg"></span>
-        <button id="logo-div-open" class="logoitems" onclick="changenav('1')" aria-label="navbars">
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-        </button>
-
-
-
-        <button id="logo-div-close" class="logoitems" onclick="changenav('0')" aria-label="navbars">
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-        </button>
-
-        <ul id="navdisplay">
-            <li class="ali" style="padding: 5px; height: 50px;"><img src="images/logoimg.jpeg"
-                    style="width:120px; height:40px; margin:0px; border-radius:0px;" alt="logo.jpeg"></li>
-            <!-- <li class="ali"><a href="project1.php">LearningHub</a></li> -->
-            <li class="ali"><a href="category.html">Home</a></li>
-            <li class="ali"><a href="about.html">About</a></li>
-            <li class="ali dropdown">
-                <a href="#">Subjects</a>
-                <div class="dropdown-content">
-                    <a href="sub_category_transparent.html">B.tech I-I </a>
-                    <a href="sub_category_transparent.html">B.tech I-II </a>
-                    <a href="sub_category_transparent.html">B.tech II-I </a>
-                    <a href="sub_category_transparent.html">B.tech II-II </a>
-                    <a href="sub_category_transparent.html">B.tech ,.... etc,. </a>
-                </div>
-            </li>
-            <li class="ali"><a href="contact.html">ContactUs</a></li>
-            <div class="right">
-
-                <li><input type="search" placeholder="Search Q&A..."></li>
-                <li class="searchbutton"><a href="#">Search</a></li>
-                <li><a href="signup.html">SignUp</a></li>
-                <li><a href="login.html">Login</a></li>
-
-            </div>
-        </ul>
-    </nav>
+    <div id="header-placeholder"></div>
 
     <form>
         <div class="container">
@@ -143,99 +100,49 @@
             <div class="mb-3">
                 <label for="contactname" class="form-label">Name :</label>
                 <input type="text" class="form-control" name="name" id="contactname" maxlength="40"
-                    onfocusout="window.localStorage.setItem('name', value);" required>
+                    required>
             </div>
             <div class="mb-3">
                 <label for="add" class="form-label">Admission No :</label>
                 <input type="text" class="form-control" name="addno" id="add" maxlength="20"
-                    onfocusout="localStorage.setItem('addno', value);" required>
+                    required>
             </div>
             <div class="mb-3">
                 <label for="college" class="form-label">College Name :</label>
                 <input type="text" class="form-control" name="college" id="college" maxlength="40"
-                    onfocusout="window.localStorage.setItem('college', value);" required>
+                    required>
             </div>
             <div class="mb-3">
                 <label for="uni" class="form-label">University :</label>
                 <input type="text" class="form-control" name="university" id="uni" maxlength="40"
-                    onfocusout="window.localStorage.setItem('university', value);" required>
+                    required>
             </div>
             <div class="mb-3">
                 <label for="branch" class="form-label">Branch :</label>
                 <input type="text" class="form-control" name="branch" id="branch" maxlength="20"
-                    onfocusout="window.localStorage.setItem('branch', value);" required>
+                    required>
             </div>
             <div class="mb-3">
                 <label for="contact_email" class="form-label">Email address :</label>
                 <input type="email" class="form-control" name="email" id="contact_email" maxlength="40"
-                    placeholder="name@example.com" onfocusout="localStorage.setItem('email', value);" required>
+                    placeholder="name@example.com" required>
             </div>
             <div class="mb-3">
                 <label for="text_area" class="form-label">password : </label>
                 <input type="password" class="form-control" name="password" maxlength="20" id="text_area"
-                    onfocusout="localStorage.setItem('key', value);" required>
+                    required>
             </div>
-            <button type="submit" onclick="checkdata()" id="sub" class="btn">Submit</button>
+            <button type="submit" id="sub" class="btn">Submit</button>
         </div>
     </form>
     <br>
-    <footer>
-        <span>&#169;Getthrough.com</span>
-        <span>▶️Projectbeclearedlearninghub@gmail.com</span>
-        <span>📚facebook.com</span>
-    </footer>
-    <script>
-        const datatime = new Date();
-        //alert(datatime);
-        document.querySelector("#datatime").value = datatime.toUTCString();
-        //below statement is not working for forms input element.
-        //document.getElementById("dataTime").value = datatime;
-        function changenav(val) {
-            if (val == 1) {
-                document.getElementById("logo").style.display = "none";
-                document.getElementById("logo-div-open").style.display = "none";
-                document.getElementById("logo-div-close").style.display = "block";
-                document.getElementById("logo-div-close").style.border = "1px solid rgb(209, 204, 204)";
-                document.getElementById("navdisplay").style.display = "block";
+    <div id="footer-placeholder"></div>
 
-            }
-            if (val == 0) {
-                document.getElementById("logo").style.display = "inline-block";
-                document.getElementById("logo-div-close").style.display = "none";
-                document.getElementById("logo-div-open").style.display = "block";
-                document.getElementById("navdisplay").style.display = "none";
-                // important for responsiveness of a website's header.
-                window.location.reload();
-            }
-        }
-        //<!-- google form info  -->
-        function checkdata() {
-            if (localStorage.getItem("name") && localStorage.getItem("addno") && localStorage.getItem("email") && localStorage.getItem("key") && localStorage.getItem("college")) {
-                let form = document.querySelector("form");
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    document.querySelector("#sub").disabled = true;
-                    document.querySelector("#sub").innerHTML = "submitting...";
-                    let data = new FormData(form);
-                    fetch('https://script.google.com/macros/s/AKfycbzWJhEMSozasTWmOGaBO1l9ZI7Cvl6OrMKLLzk1OwTR6a8uKdXomIBc3s2d5Pju4ZaI/exec', {
-                        method: "POST",
-                        body: data
-                    })
-                        .then(res => res.text())
-                        .then(data => {
-                            document.querySelector("#sub").innerHTML = "success";
-                            alert('Registered/{already} sucessfully.Please Login now.');
-                            window.location.assign("login.html");
-                        });
-                })
-                //window.location.reload();
-            }
-            else {
-                alert('Please, Fill all the required feilds.');
-            }
-        }
-    </script>
 
+
+    <script src="scripts/signup.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/components.js"></script>
 </body>
 
 </html>

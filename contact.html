@@ -94,50 +94,7 @@
 
 <body>
 
-    <nav>
-        <!-- <span id="logo">LearningHub</span> -->
-        <span id="logo"><img class="logoimg" src="images/logoimg.jpeg" alt="logo.jpeg"></span>
-        <button id="logo-div-open" class="logoitems" onclick="changenav(1)" aria-label="navbars">
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-        </button>
-
-
-
-        <button id="logo-div-close" class="logoitems" onclick="changenav(0)" aria-label="navbars">
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-        </button>
-
-        <ul id="navdisplay">
-            <li class="ali" style="padding: 5px; height: 50px;"><img src="images/logoimg.jpeg"
-                    style="width:120px; height:40px; margin:0px; border-radius:0px;" alt="logo.jpeg"></li>
-            <!-- <li class="ali"><a href="project1.php">LearningHub</a></li> -->
-            <li class="ali"><a href="category.html">Home</a></li>
-            <li class="ali"><a href="about.html">About</a></li>
-            <li class="ali dropdown">
-                <a href="sub_category_transparent.html">Subjects</a>
-                <div class="dropdown-content">
-                    <a href="#">B.tech I-I </a>
-                    <a href="#">B.tech I-II </a>
-                    <a href="#">B.tech II-I </a>
-                    <a href="#">B.tech II-II </a>
-                    <a href="#">B.tech ,.... etc,. </a>
-                </div>
-            </li>
-            <li class="ali"><a href="contact.html">ContactUs</a></li>
-            <div class="right">
-
-                <li><input type="search" placeholder="Search Q&A..."></li>
-                <li class="searchbutton"><a href="#">Search</a></li>
-                <li><a href="signup.html">SignUp</a></li>
-                <li><a href="login.html">Login</a></li>
-
-            </div>
-        </ul>
-    </nav>
+    <div id="header-placeholder"></div>
 
     <form action="mailto:Projectbeclearedlearninghub@gmail.com" method="POST" enctype="text/plain">
         <div class="container">
@@ -155,31 +112,12 @@
         </div>
     </form>
     <br>
-    <footer>
-        <span>&#169;Getthrough.com</span>
-        <span>▶️Projectbeclearedlearninghub@gmail.com</span>
-        <span>📚facebook.com</span>
-    </footer>
+    <div id="footer-placeholder"></div>
     <script>
-        function changenav(val) {
-            if (val == 1) {
-                document.getElementById("logo").style.display = "none";
-                document.getElementById("logo-div-open").style.display = "none";
-                document.getElementById("logo-div-close").style.display = "block";
-                document.getElementById("logo-div-close").style.border = "2px solid rgb(209, 204, 204)";
-                document.getElementById("navdisplay").style.display = "block";
-
-            }
-            if (val == 0) {
-                document.getElementById("logo").style.display = "inline-block";
-                document.getElementById("logo-div-close").style.display = "none";
-                document.getElementById("logo-div-open").style.display = "block";
-                document.getElementById("navdisplay").style.display = "none";
-                // important for responsiveness of a website's header.
-                window.location.reload();
-            }
-        }
     </script>
+
+
+    <script src="scripts/components.js"></script>
 </body>
 
 </html>
