@@ -90,3 +90,121 @@ document.addEventListener("DOMContentLoaded", () => {
         startLearningBtn.removeAttribute("onclick");
     }
 });
+
+// Moved from sub_category_transparent.html
+document.addEventListener("DOMContentLoaded", () => {
+    // present date value.
+    const dateValueEl = document.getElementById("datevalue");
+    if (dateValueEl) {
+        const d = new Date();
+        dateValueEl.innerHTML = d.toDateString();
+    }
+});
+
+function sel1(k) {
+    var x = document.getElementsByClassName("sideinfo");
+    var y = document.getElementsByClassName("sub-open");
+    var z = document.getElementsByClassName("sub-close");
+
+    for (var i = 0; i < x.length; i++) {
+        if (i == k) {
+            if(x[i]) x[i].style.display = "inline-block";
+            if(y[i]) y[i].style.display = "none";
+            if(z[i]) z[i].style.display = "inline-block";
+        }
+        else {
+            if(x[i]) x[i].style.display = "none";
+            if(y[i]) y[i].style.display = "inline";
+            if(z[i]) z[i].style.display = "none";
+        }
+    }
+}
+
+//function for syllabus copy dispaly.
+function subject(obj, k) {
+    var sub, x, y;
+    sub = obj.innerHTML;
+    localStorage.setItem('subject', sub);
+    localStorage.setItem('subjectcode', k);
+    x = document.getElementsByClassName("fakeimg");
+    y = document.getElementsByClassName("subjectname");
+
+    if (x.length > 0) {
+        x[0].src = "images/syllabus/" + sub + "IMAGE.jpg";
+    }
+    if (y.length > 0) {
+        y[0].innerHTML = localStorage.getItem('subject');
+    }
+
+    // Fix: Reset the button states when a new subject is selected
+    subject_change();
+}
+
+//function to change the subject after visiting question papers
+function subject_change() {
+    var sub, x;
+    sub = localStorage.getItem('subject');
+    x = document.getElementsByClassName("fakeimg");
+    if (x.length > 0) {
+        x[0].src = "images/syllabus/" + sub + "IMAGE.jpg";
+    }
+
+    const sBtn = document.getElementById("spaperbutton");
+    const qBtn = document.getElementById("qpaperbutton");
+    if (sBtn) sBtn.style.display = "none";
+    if (qBtn) qBtn.style.display = "block";
+}
+
+//function for question paper display.
+function Q_paper() {
+    let x, sub;
+    sub = localStorage.getItem('subject');
+    if (sub !== undefined && sub !== null) {
+        x = document.getElementsByClassName("fakeimg");
+        if (x.length > 0) {
+            x[0].src = "images/syllabus/qpapers/" + sub + "paper.jpg";
+        }
+        const sBtn = document.getElementById("spaperbutton");
+        const qBtn = document.getElementById("qpaperbutton");
+        if (qBtn) qBtn.style.display = "none";
+        if (sBtn) sBtn.style.display = "block";
+    }
+    else {
+        window.location.reload();
+    }
+}
+
+function setStorage() {
+    localStorage.setItem('subject', 'BEE');
+    localStorage.setItem('subjectcode', 0);
+}
+
+function block_subject(val) {
+    const cardDisplay = document.getElementById("card-display");
+    const subOpen = document.getElementById("subject-open");
+    const subClose = document.getElementById("subject-close");
+
+    if (val == 1) {
+        if(cardDisplay) cardDisplay.style.display = "block";
+        if(subOpen) subOpen.style.display = "none";
+        if(subClose) subClose.style.display = "block";
+    }
+    if (val == 0) {
+        if(cardDisplay) cardDisplay.style.display = "none";
+        if(subOpen) subOpen.style.display = "block";
+        if(subClose) subClose.style.display = "none";
+    }
+}
+
+function block_sub_subject(val) {
+    var x = document.getElementsByClassName("sideinfo");
+    var y = document.getElementsByClassName("sub-open");
+    var z = document.getElementsByClassName("sub-close");
+    if(x[val]) x[val].style.display = "none";
+    if(y[val]) y[val].style.display = "inline";
+    if(z[val]) z[val].style.display = "none";
+}
+
+function myCourse() {
+    alert(`choose one of the following course's`);
+}
