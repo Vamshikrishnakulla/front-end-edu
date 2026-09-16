@@ -1,4 +1,4 @@
-
+// @ts-check
 
 document.addEventListener("DOMContentLoaded", () => {
     // Subject Open/Close logic
@@ -136,7 +136,7 @@ function sel1(k) {
  */
 function subject(obj, k) {
     var sub, x, y;
-    sub = obj.innerHTML;
+    sub = obj.innerHTML.trim();
     localStorage.setItem('subject', sub);
     localStorage.setItem('subjectcode', k);
     x = document.getElementsByClassName("fakeimg");
