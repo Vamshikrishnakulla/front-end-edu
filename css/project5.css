@@ -15,7 +15,7 @@
 
 .bgimage {
   /*https://source.unsplash.com/1200x1200/?notes*/
-  background-image: url("../images/playlistbgimage1.jpg");
+  background-image: url('/projectwork/uploadprojectgithub/images/playlistbgimage1.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -58,7 +58,7 @@ body {
   -webkit-border-radius: 8;
   -moz-border-radius: 8;
   border-radius: 8px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #ffffff;
   font-size: 0.9rem;
   border: 0;
@@ -67,14 +67,14 @@ body {
 }
 
 .btn:hover {
-  background: #30e3cb;
-  background-image: -webkit-linear-gradient(top, #30e3cb, #2bc4ad);
-  background-image: -moz-linear-gradient(top, #30e3cb, #2bc4ad);
-  background-image: -ms-linear-gradient(top, #30e3cb, #2bc4ad);
-  background-image: -o-linear-gradient(top, #30e3cb, #2bc4ad);
-  background-image: linear-gradient(to bottom, #30e3cb, #2bc4ad);
+  background:  #30e3cb;
+  background-image: -webkit-linear-gradient(top,  #30e3cb,  #2bc4ad);
+  background-image: -moz-linear-gradient(top,  #30e3cb,  #2bc4ad);
+  background-image: -ms-linear-gradient(top,  #30e3cb,  #2bc4ad);
+  background-image: -o-linear-gradient(top,  #30e3cb,  #2bc4ad);
+  background-image: linear-gradient(to bottom,  #30e3cb,  #2bc4ad);
   text-decoration: none;
-}
+  }
 .btn a {
   color: white;
   text-decoration: none;
@@ -99,7 +99,7 @@ body {
 
 legend {
   color: black;
-  background-color: #26c6da;
+  background-color: #26C6DA;
   /* font-family: 'Sacramento', cursive; */
   color: #fff;
 }
@@ -112,9 +112,7 @@ legend {
   font-size: 0.8rem;
 }
 
-#playlist1,
-#playlist2,
-#playlist3 {
+#playlist1, #playlist2, #playlist3 {
   padding: 5px;
 }
 

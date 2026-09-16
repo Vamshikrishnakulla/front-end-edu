@@ -1,3 +1,5 @@
+// @ts-check
+
 document.addEventListener("DOMContentLoaded", () => {
     // Subject Open/Close logic
     const subjectOpen = document.getElementById("subject-open");
@@ -101,6 +103,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+/**
+ * Toggles the sidebar subject lists visibility.
+ * @param {string} k - The index of the sidebar group to open.
+ * @returns {void}
+ */
 function sel1(k) {
     var x = document.getElementsByClassName("sideinfo");
     var y = document.getElementsByClassName("sub-open");
@@ -121,9 +128,15 @@ function sel1(k) {
 }
 
 //function for syllabus copy dispaly.
+/**
+ * Selects a subject, saves to localStorage, and updates UI.
+ * @param {HTMLElement} obj - The DOM element of the selected subject.
+ * @param {string} k - The index/code of the subject.
+ * @returns {void}
+ */
 function subject(obj, k) {
     var sub, x, y;
-    sub = obj.innerHTML.trim();
+    sub = obj.innerHTML;
     localStorage.setItem('subject', sub);
     localStorage.setItem('subjectcode', k);
     x = document.getElementsByClassName("fakeimg");
@@ -141,6 +154,10 @@ function subject(obj, k) {
 }
 
 //function to change the subject after visiting question papers
+/**
+ * Changes the view state to display the subject syllabus image.
+ * @returns {void}
+ */
 function subject_change() {
     var sub, x;
     sub = localStorage.getItem('subject');
@@ -156,6 +173,10 @@ function subject_change() {
 }
 
 //function for question paper display.
+/**
+ * Changes the view state to display the subject question paper image.
+ * @returns {void}
+ */
 function Q_paper() {
     let x, sub;
     sub = localStorage.getItem('subject');
@@ -174,11 +195,20 @@ function Q_paper() {
     }
 }
 
+/**
+ * Sets the default fallback storage subject.
+ * @returns {void}
+ */
 function setStorage() {
     localStorage.setItem('subject', 'BEE');
     localStorage.setItem('subjectcode', 0);
 }
 
+/**
+ * Toggles the main cards display state.
+ * @param {number} val - 1 to open, 0 to close.
+ * @returns {void}
+ */
 function block_subject(val) {
     const cardDisplay = document.getElementById("card-display");
     const subOpen = document.getElementById("subject-open");
@@ -196,6 +226,11 @@ function block_subject(val) {
     }
 }
 
+/**
+ * Hides a specific sidebar sub-subject group.
+ * @param {string} val - The index of the sub-subject group to close.
+ * @returns {void}
+ */
 function block_sub_subject(val) {
     var x = document.getElementsByClassName("sideinfo");
     var y = document.getElementsByClassName("sub-open");
@@ -205,6 +240,10 @@ function block_sub_subject(val) {
     if(z[val]) z[val].style.display = "none";
 }
 
+/**
+ * Prompts the user to choose a course.
+ * @returns {void}
+ */
 function myCourse() {
     alert(`choose one of the following course's`);
 }

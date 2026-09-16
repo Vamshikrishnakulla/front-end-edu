@@ -1,3 +1,9 @@
+// @ts-check
+
+/**
+ * Returns the HTML string for the application navigation bar.
+ * @type {string}
+ */
 const headerHTML = `
     <nav>
         <span id="logo"><img class="logoimg" src="images/logoimg.jpeg" alt="logo.jpeg"></span>
@@ -36,12 +42,21 @@ const headerHTML = `
     </nav>
 `;
 
+/**
+ * Generates the HTML string for the application footer.
+ * @returns {string} The footer HTML string.
+ */
 const getFooterHTML = () => `
         <span>&#169;Getthrough.com</span>
         <span>▶️Projectbeclearedlearninghub@gmail.com</span>
         <span>📚facebook.com</span>
 `;
 
+/**
+ * Toggles the visibility of the mobile navigation menu.
+ * @param {number} val - 1 to open the menu, 0 to close it.
+ * @returns {void}
+ */
 function changenav(val) {
     const logo = document.getElementById("logo");
     const openBtn = document.getElementById("logo-div-open");

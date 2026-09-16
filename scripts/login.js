@@ -1,3 +1,5 @@
+// @ts-check
+
 document.addEventListener("DOMContentLoaded", () => {
     const submitBtn = document.querySelector('.container button');
     if (submitBtn) {

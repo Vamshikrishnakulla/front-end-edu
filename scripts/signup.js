@@ -1,3 +1,5 @@
+// @ts-check
+
 document.addEventListener("DOMContentLoaded", () => {
     const inputs = [
         { id: 'contactname', key: 'name' },

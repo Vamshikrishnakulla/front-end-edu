@@ -1,3 +1,19 @@
+// @ts-check
+
+/**
+ * @typedef {Object} Course
+ * @property {number} id - Unique identifier for the course.
+ * @property {string} webLink - URL to website reference material.
+ * @property {string} englishVideo - URL to English video playlist.
+ * @property {string} hindiVideo - URL to Hindi video playlist.
+ * @property {string} teluguVideo - URL to Telugu video playlist.
+ * @property {string} noteBook - URL to notebook/PDF resources.
+ */
+
+/**
+ * Unified array containing all course resources.
+ * @type {Course[]}
+ */
 const coursesData = [
     {
         id: 0,
@@ -346,6 +362,10 @@ if (choosedCourse == undefined || choosedCourse == null) {
     choosedCourse = parseInt(choosedCourse, 10);
 }
 
+/**
+ * Checks and opens the web reference link for the chosen course.
+ * @returns {void}
+ */
 function webCheck() {
     const course = coursesData.find(c => c.id === choosedCourse);
     const link = course ? course.webLink : "#";
@@ -360,6 +380,10 @@ function webCheck() {
     }
 }
 
+/**
+ * Checks and opens the notebook link for the chosen course.
+ * @returns {void}
+ */
 function notebookcheck() {
     const course = coursesData.find(c => c.id === choosedCourse);
     const link = course ? course.noteBook : "#";
@@ -374,6 +398,11 @@ function notebookcheck() {
     }
 }
 
+/**
+ * Opens the video playlist for the chosen language.
+ * @param {string} value - The selected language ("English", "Hindi", "Telugu", or "null").
+ * @returns {void}
+ */
 function language(value) {
     if (value == "null") {
         document.getElementById("parachange").innerHTML = "You have choosed to learn " + localStorage.getItem("subject");

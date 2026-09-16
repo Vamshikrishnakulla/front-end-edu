@@ -1,3 +1,5 @@
+// @ts-check
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const webBtn = document.getElementById("webBtn");

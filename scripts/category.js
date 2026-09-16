@@ -1,3 +1,5 @@
+// @ts-check
+
 document.addEventListener("DOMContentLoaded", () => {
     // Add logic for branch selection alerts
     const branchLinks = document.querySelectorAll('.gallery a');
@@ -21,6 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+/**
+ * Toggles the visibility of the hero carousel images.
+ * @param {number} k - The index of the image to display.
+ * @returns {void}
+ */
 function sel1(k) {
     var x = document.getElementsByClassName("top-img");
     for (var i = 0; i < x.length; i++) {
