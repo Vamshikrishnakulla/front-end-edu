@@ -12,145 +12,10 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&family=Ubuntu:wght@500&display=swap"
         rel="stylesheet">
-    <style>
-    * {
-	box-sizing: border-box;
-    }
-
-    body {
-        font-family: "montserrat-bold", Arial;
-        margin: 0;
-        /* https://source.unsplash.com/1550x800/?notes */
-        background-image: url('images/aboutbgimage1.jpg');
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-    }
-
-    nav {
-        position: sticky;
-        top: 0;
-    }
-
-    ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
-    }
-
-    li.ali {
-        float: left;
-    }
-
-    .right {
-        float: right;
-    }
-
-    .right li {
-        float: left;
-    }
-
-
-    input {
-        width: 100px;
-        margin: 10px;
-        padding: 5px;
-        border-radius: 5px;
-    }
-
-    li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 18px;
-        text-decoration: none;
-    }
-
-    li a:hover {
-        background-color: green;
-    }
-
-    div.info {
-        height: 100%;
-    }
-
-    .info div {
-        padding: 50px;
-        width: 60%;
-        margin: 15px auto;
-        box-shadow: 0 8px 16px 0 rgb(28, 29, 28);
-        background-color: rgba(161, 233, 209, 0.3);
-        color: black;
-        border: 0px solid #333;
-        border-radius: 10px;
-    }
     
-    .info div:hover {
-        background-color: rgb(205, 236, 226, 0.4);
-        font-size: 17px;
-    }
-
-    footer {
-        padding: 30px;
-        background-color: #333;
-        text-align: center;
-        color: white;
-        overflow: auto;
-
-    }
-    @media screen and (max-width: 750px) {
-
-        li.ali,
-        .right li,
-        .right {
-            float: none;
-        }
-
-        nav {
-
-            position: fixed;
-            height: 100%;
-            width: 25%;
-            background-color: #333;
-            overflow: auto;
-            
-
-        }
-
-        ul {
-            overflow: auto;
-        }
-
-        li a {
-            text-align: left;
-        }
-
-        div.info {
-            margin-top: 0;
-            margin-left: 25%;
-
-        }
-
-        input {
-            display: block;
-            width: 80%;
-            margin: 10px auto;
-        }
-        .info div {
-            box-sizing: border-box;
-            margin: 25px 0;
-            width: 100%;
-        }
-	footer {
-      text-align: right;
-      padding: 30px 10px 30px 30px;
-
-      }
-
-    }
-    </style>
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/about.css">
 </head>
 
 <body>
@@ -187,7 +52,7 @@
             <!-- <span><a href="category.html" style="float:right; color:rgb(46, 10, 145);">click here&gt&gt</a></span> -->
         </div>
     </div>
-    <div id="footer-placeholder"></div>
+    <div id="footer-placeholder" class="footer"></div>
 
 
 

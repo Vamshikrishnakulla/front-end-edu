@@ -36,12 +36,10 @@ const headerHTML = `
     </nav>
 `;
 
-const footerHTML = `
-    <div class="footer">
+const getFooterHTML = () => `
         <span>&#169;Getthrough.com</span>
         <span>▶️Projectbeclearedlearninghub@gmail.com</span>
         <span>📚facebook.com</span>
-    </div>
 `;
 
 function changenav(val) {
@@ -86,6 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const footerPlaceholder = document.getElementById("footer-placeholder");
     if (footerPlaceholder) {
-        footerPlaceholder.innerHTML = footerHTML;
+        footerPlaceholder.innerHTML = getFooterHTML();
     }
 });

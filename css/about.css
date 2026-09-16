@@ -1,0 +1,36 @@
+
+* { box-sizing: border-box; }
+body {
+    font-family: "montserrat-bold", Arial;
+    margin: 0;
+    background-image: url('../images/aboutbgimage1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+div.info { height: 100%; }
+.info div {
+    padding: 50px;
+    width: 60%;
+    margin: 15px auto;
+    box-shadow: 0 8px 16px 0 rgb(28, 29, 28);
+    background-color: rgba(161, 233, 209, 0.3);
+    color: black;
+    border: 0px solid #333;
+    border-radius: 10px;
+}
+.info div:hover {
+    background-color: rgb(205, 236, 226, 0.4);
+    font-size: 17px;
+}
+@media screen and (max-width: 750px) {
+    div.info {
+        margin-top: 0;
+        margin-left: 25%;
+    }
+    .info div {
+        box-sizing: border-box;
+        margin: 25px 0;
+        width: 100%;
+    }
+}
