@@ -1,4 +1,4 @@
-// @ts-check
+
 
 document.addEventListener("DOMContentLoaded", () => {
     // Subject Open/Close logic

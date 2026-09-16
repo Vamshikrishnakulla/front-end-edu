@@ -15,7 +15,7 @@
 
 .bgimage {
   /*https://source.unsplash.com/1200x1200/?notes*/
-  background-image: url('/projectwork/uploadprojectgithub/images/playlistbgimage1.jpg');
+  background-image: url('../images/playlistbgimage1.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
