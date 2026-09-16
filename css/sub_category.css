@@ -14,7 +14,7 @@
             background: rgb(41, 230, 230);
             color: #f1f1f1;
             /* https://source.unsplash.com/1550x300/?notes  */
-            background-image: url('images/learningbgimage.jpg');
+            background-image: url('../images/learningbgimage.jpg');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
