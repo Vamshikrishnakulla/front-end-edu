@@ -687,6 +687,8 @@
             x[0].src = "images/syllabus/" + sub + "IMAGE.jpg";
             y[0].innerHTML = localStorage.getItem('subject');
 
+            // Fix: Reset the button states when a new subject is selected
+            subject_change();
         }
 
         //function to change the subject after visiting question papers
