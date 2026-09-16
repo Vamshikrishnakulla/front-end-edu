@@ -1,0 +1,29 @@
+a:link {
+  color: red;
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+
+.para {
+  font-size: 17px;
+}
+
+@media screen and (max-width: 800px) {
+  .img {
+    width: 100%;
+  }
+
+  .linkflow {
+    display: block;
+    text-align: right;
+    padding-right: 20px;
+  }
+
+  .para {
+    line-height: 1.5;
+  }
+}

@@ -15,65 +15,15 @@
         rel="stylesheet">
     <!-- nav bar style -->
     <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/project5.css">
-    <style>
-        .footer {
-            font-size: 1rem;
-            padding: 10px 5px;
-            text-align: center;
-            color: white;
-            background: #333;
-            margin-top: 20px;
-            overflow: auto;
-        }
-    </style>
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/playlist.css">
+
 </head>
 
 <body>
-    <nav>
-        <!-- <span id="logo">LearningHub</span> -->
-        <span id="logo"><img class="logoimg" src="images/logoimg.jpeg" alt="logo.jpeg"></span>
-        <button id="logo-div-open" class="logoitems" onclick="changenav(1)" aria-label="navbars">
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-        </button>
-
-        <button id="logo-div-close" class="logoitems" onclick="changenav(0)" aria-label="navbars">
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-            <span class="logoitem"></span>
-        </button>
-
-        <ul id="navdisplay">
-            <li class="ali" style="padding: 5px; height: 50px;"><img src="images/logoimg.jpeg"
-                    style="width:120px; height:40px; margin:0px; border-radius:0px;" alt="logo.jpeg"></li>
-            <!-- <li class="ali"><a href="project1.php">LearningHub</a></li> -->
-            <li class="ali"><a href="category.html">Home</a></li>
-            <li class="ali"><a href="about.html">About</a></li>
-            <li class="ali dropdown">
-                <a href="#">Subjects</a>
-                <div class="dropdown-content">
-                    <a href="sub_category_transparent.html">B.tech I-I </a>
-                    <a href="#">B.tech I-II </a>
-                    <a href="#">B.tech II-I </a>
-                    <a href="#">B.tech II-II </a>
-                    <a href="#">B.tech ,.... etc,. </a>
-                </div>
-            </li>
-            <li class="ali"><a href="contact.html">ContactUs</a></li>
-            <div class="right">
-
-                <li><input type="search" placeholder="Search Q&A..."></li>
-                <li class="searchbutton"><a href="#">Search</a></li>
-                <li><a href="signup.html">SignUp</a></li>
-                <li><a href="login.html">Login</a></li>
-
-            </div>
-
-        </ul>
-
-    </nav>
+    <!-- ================= HEADER ================= -->
+    <div id="header-placeholder"></div>
+    <!-- ================= MAIN CONTENT ================= -->
     <span><a href="sub_category_transparent.html" style="color:rgb(38, 0, 255);">&lt;&lt;Back</a></span>
     <h1 class="font-effect-fire" style="margin-top: 10px; text-align:center; color:#f5a20a; color: white;
   text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;"><ins>"Put Your Thoughts into Action
@@ -96,7 +46,7 @@
                     <h3 style="text-align:center"><ins>WEBSITE REFERENCE</ins></h3>
                     <p style="text-align:center">if you are interested to learn by your own,then click below</p>
 
-                    <button onclick="webCheck()" style="display:block;width:120px; margin:auto;" class="btn"><a href="#"
+                    <button id="webBtn" style="display:block;width:120px; margin:auto;" class="btn"><a href="#"
                             style="display:block;" target="_self" id="playlist1">start learning</a></button>
                 </fieldset>
             </div>
@@ -108,13 +58,13 @@
                     <h3 style="text-align:center"><ins>ONLINE LECTURES</ins></h3>
                     <p style="text-align:center">if you are interested to learn through videos,then click below</p>
                     <select id="lan" style="display:block; width:40%; margin: 10px auto; border-radius: 5px;"
-                        onchange="language(value)">
+                        >
                         <option value="null">choose language</option>
                         <option value="English">English</option>
                         <option value="Hindi">Hindi</option>
                         <option value="Telugu">Telugu</option>
                     </select>
-                    <button style="display:block;width:120px; margin:auto;" class="btn" onclick="videoplay()"><a
+                    <button id="videoBtn" style="display:block;width:120px; margin:auto;" class="btn" ><a
                             href="#" style="display:block;" target="_self" id="playlist2">start learning</a></button>
                 </fieldset>
             </div>
@@ -129,7 +79,7 @@
                     <h3 style="text-align:center"><ins>NOTES DOWNLOAD</ins></h3>
                     <p style="text-align:center">if you are interested to learn by your own,then click below</p>
 
-                    <button onclick="notebookcheck()" style="display:block;width:100px; margin:auto;" class="btn"><a
+                    <button id="notesBtn" style="display:block;width:100px; margin:auto;" class="btn"><a
                             href="#" style="display:block;" target="_self" id="playlist3">Download</a></button>
                 </fieldset>
             </div>
@@ -140,7 +90,7 @@
 
                     <h3 style="text-align:center">QUESTION & ANSWERS</h3>
                     <p style="text-align:center">if you have any doubts then go to click below</p>
-                    <p onclick="checkstorage()" style="text-align:center; margin-bottom: 0;"><a href="#">🔒Please, Login
+                    <p id="discussLink" style="text-align:center; margin-bottom: 0;"><a href="#">🔒Please, Login
                             to
                             continue.</a></p>
 
@@ -151,11 +101,8 @@
 
     </fieldset>
     <hr>
-    <div class="footer">
-        <span>&#169;Getthrough.com</span>
-        <span>▶️Projectbeclearedlearninghub@gmail.com</span>
-        <span>📚facebook.com</span>
-    </div>
+    <!-- ================= FOOTER ================= -->
+    <div id="footer-placeholder" class="footer"></div>
 
     <!--<script>
         //delete localStorage.lan;
@@ -163,68 +110,16 @@
         //localStorage.clear();
     </script>-->
     <script>
-        function changenav(val) {
-            if (val == 1) {
-                document.getElementById("logo").style.display = "none";
-                document.getElementById("logo-div-open").style.display = "none";
-                document.getElementById("logo-div-close").style.display = "block";
-                document.getElementById("logo-div-close").style.border = "2px solid rgb(209, 204, 204)";
-                document.getElementById("navdisplay").style.display = "block";
-
-            }
-            if (val == 0) {
-                document.getElementById("logo").style.display = "inline-block";
-                document.getElementById("logo-div-close").style.display = "none";
-                document.getElementById("logo-div-open").style.display = "block";
-                document.getElementById("navdisplay").style.display = "none";
-                // important for responsiveness of a website's header.
-                window.location.reload();
-            }
-
-
-            //document.getElementsByClassName("logoitems").display = none;
-
-        }
         //document.getElementById("navdisplay").style.display = "block";
-        // function changenav() {
-
-        //     document.getElementById("logo").style.display = "none";
-        //     //document.getElementsByClassName("logoitems").display = none;
-        //     document.getElementById("navdisplay").style.display = "block";
-        // }
-        // function changenav2() {
-
-        //     document.getElementById("logo").style.display = "inline-block";
-        //     //document.getElementsByClassName("logoitems").display = none;
-        //     document.getElementById("navdisplay").style.display = "none";
-        //     //can be removed as only for testing responsiveness in large devices.
-        //     window.location.reload();
-        // }
-
-        function videoplay() {
-            var lan = localStorage.getItem("language");
-            //window.alert(lan);
-            if (lan == null || lan === undefined) {
-                window.alert("choose the language for video playlist.");
-                document.getElementById('playlist2').href = "#";
-                delete localStorage.language;
-            }
-
-        }
-        function checkstorage() {
-            if (localStorage.getItem("name") && localStorage.getItem("addno") && localStorage.getItem("email") && localStorage.getItem("key") && localStorage.getItem("college")) {
-                alert('Hello, sorry!!,.. This is a test feature, under implementation will make the service avaliale soon!!,..');
-            }
-            else {
-                window.location.assign("login.html");
-            }
-        }
 
         if (!(localStorage.getItem('name') == undefined)) {
             document.getElementById("demo").innerHTML = localStorage.getItem("name");
         }
     </script>
+    <script src="scripts/playlist_events.js"></script>
+    <script src="scripts/auth.js"></script>
     <script src="scripts/playlist.js"></script>
+    <script src="scripts/components.js"></script>
 </body>
 
 </html>
