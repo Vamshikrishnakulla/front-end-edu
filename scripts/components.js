@@ -7,12 +7,12 @@
 const headerHTML = `
     <nav aria-label="Main Navigation">
         <span id="logo"><img class="logoimg" src="images/logoimg.jpeg" alt="logo.jpeg"></span>
-        <button id="logo-div-open" class="logoitems" aria-label="navbars">
+        <button id="logo-div-open" class="logoitems" aria-label="Open Navigation" aria-expanded="false" aria-controls="navdisplay">
             <span class="logoitem"></span>
             <span class="logoitem"></span>
             <span class="logoitem"></span>
         </button>
-        <button id="logo-div-close" class="logoitems" aria-label="navbars">
+        <button id="logo-div-close" class="logoitems" aria-label="Close Navigation" aria-expanded="true" aria-controls="navdisplay">
             <span class="logoitem"></span>
             <span class="logoitem"></span>
             <span class="logoitem"></span>
@@ -68,14 +68,18 @@ function changenav(val) {
     if (val == 1) {
         logo.style.display = "none";
         openBtn.style.display = "none";
+        openBtn.setAttribute("aria-expanded", "true");
         closeBtn.style.display = "block";
+        closeBtn.setAttribute("aria-expanded", "true");
         closeBtn.style.border = "2px solid rgb(209, 204, 204)";
         navDisplay.style.display = "block";
     }
     if (val == 0) {
         logo.style.display = "inline-block";
         closeBtn.style.display = "none";
+        closeBtn.setAttribute("aria-expanded", "false");
         openBtn.style.display = "block";
+        openBtn.setAttribute("aria-expanded", "false");
         navDisplay.style.display = "none";
         window.location.reload();
     }

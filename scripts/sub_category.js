@@ -112,17 +112,20 @@ function sel1(k) {
     var x = document.getElementsByClassName("sideinfo");
     var y = document.getElementsByClassName("sub-open");
     var z = document.getElementsByClassName("sub-close");
+    var sideDivs = document.querySelectorAll(".side > div:first-child");
 
     for (var i = 0; i < x.length; i++) {
         if (i == k) {
             if(x[i]) x[i].style.display = "inline-block";
             if(y[i]) y[i].style.display = "none";
             if(z[i]) z[i].style.display = "inline-block";
+            if(sideDivs[i] && sideDivs[i].hasAttribute("role")) sideDivs[i].setAttribute("aria-expanded", "true");
         }
         else {
             if(x[i]) x[i].style.display = "none";
             if(y[i]) y[i].style.display = "inline";
             if(z[i]) z[i].style.display = "none";
+            if(sideDivs[i] && sideDivs[i].hasAttribute("role")) sideDivs[i].setAttribute("aria-expanded", "false");
         }
     }
 }
@@ -235,9 +238,11 @@ function block_sub_subject(val) {
     var x = document.getElementsByClassName("sideinfo");
     var y = document.getElementsByClassName("sub-open");
     var z = document.getElementsByClassName("sub-close");
+    var sideDivs = document.querySelectorAll(".side > div:first-child");
     if(x[val]) x[val].style.display = "none";
     if(y[val]) y[val].style.display = "inline";
     if(z[val]) z[val].style.display = "none";
+    if(sideDivs[val] && sideDivs[val].hasAttribute("role")) sideDivs[val].setAttribute("aria-expanded", "false");
 }
 
 /**
