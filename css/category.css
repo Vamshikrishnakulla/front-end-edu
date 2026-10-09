@@ -100,12 +100,13 @@ div.hold {
 }
 @media only screen and (max-width: 600px) {
     .responsive {
-        width: 100%;
+        width: 90%;
         float: none;
-        padding: 10px 0;
+        margin: 25px auto;
+        padding: 0;
     }
     div.hold {
-        width: 95%;
+        width: 100%;
     }
     div.gallery img {
         opacity: 1;
