@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!isProfileComplete()) {
         e.preventDefault();
-        alert("Please, Fill all the required feilds.");
+        alert("Please fill in all required fields.");
       }
     });
     submitBtn.removeAttribute("onclick");

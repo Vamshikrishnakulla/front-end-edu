@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
              link.addEventListener('click', (e) => {
                  if (link.getAttribute('href') === "#" || link.querySelector('.desc').textContent !== 'CSE') {
                      e.preventDefault();
-                     alert('Currently, the service is only avaliable for the branch CSE and will get updated for other braches, Soon!!..,');
+                     alert('Currently, the service is only available for the CSE branch.');
                  }
              });
         }

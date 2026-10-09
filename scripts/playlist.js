@@ -406,7 +406,7 @@ function notebookcheck() {
  */
 function language(value) {
     if (value == "null") {
-        document.getElementById("parachange").innerHTML = "You have choosed to learn " + localStorage.getItem("subject");
+        document.getElementById("parachange").innerHTML = "You have chosen to learn " + localStorage.getItem("subject");
         delete localStorage.language;
         window.alert("Please, choose the language to get the video playlist.");
         document.getElementById('playlist2').href = "#";
@@ -431,7 +431,7 @@ function language(value) {
         if (!link || link === "#" || link === "null") {
             alert("Resource content for this subject is coming soon.");
         } else {
-            document.getElementById("parachange").innerHTML = "You have choosed to learn " + localStorage.getItem("subject") + " in language " + lan + ".";
+            document.getElementById("parachange").innerHTML = "You have chosen to learn " + localStorage.getItem("subject") + " in language " + lan + ".";
             document.getElementById("playlist2").href = link;
             document.getElementById("playlist2").target = "_blank";
         }
