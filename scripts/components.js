@@ -82,15 +82,11 @@ function changenav(val) {
 }
 
 /**
- * Checks if the user is authenticated by verifying required keys in localStorage.
- * @returns {boolean} True if authenticated, false otherwise.
+ * Checks if the user is currently logged in based on the session flag.
+ * @returns {boolean} True if logged in, false otherwise.
  */
 function isAuthenticated() {
-    const requiredKeys = ['name', 'email', 'key', 'college', 'addno'];
-    return requiredKeys.every(key => {
-        const value = localStorage.getItem(key);
-        return value !== null && value.trim() !== '';
-    });
+    return localStorage.getItem("isLoggedIn") === "true";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -137,8 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     logoutBtn.addEventListener("click", (e) => {
                         e.preventDefault();
 
-                        const keysToRemove = ['name', 'email', 'key', 'college', 'addno', 'university', 'branch'];
-                        keysToRemove.forEach(key => localStorage.removeItem(key));
+                        localStorage.removeItem("isLoggedIn");
 
                         welcomeLi.remove();
                         logoutLi.remove();

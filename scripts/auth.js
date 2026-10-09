@@ -4,12 +4,20 @@
  * Validates whether mandatory user profile keys exist in localStorage.
  * @returns {boolean} True if user profile is complete, otherwise false.
  */
-function isAuthenticated() {
+function isProfileComplete() {
     const requiredKeys = ['name', 'email', 'key', 'college', 'addno'];
     return requiredKeys.every(key => {
         const value = localStorage.getItem(key);
         return value !== null && value.trim() !== '';
     });
+}
+
+/**
+ * Checks if the user is currently logged in.
+ * @returns {boolean} True if logged in, false otherwise.
+ */
+function isAuthenticated() {
+    return localStorage.getItem("isLoggedIn") === "true";
 }
 
 /**
@@ -29,6 +37,7 @@ function checkLogin(inputEmail, inputPassword) {
         alert("Please signup for the website and login again.");
         window.location.assign("signup.html");
     } else if (storedEmail === cleanEmail && storedPass === cleanPass) {
+        localStorage.setItem("isLoggedIn", "true");
         alert("Login success, you can now access the syllabus.");
         window.location.assign("category.html");
     } else {

@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitBtn = document.getElementById("sub");
   if (submitBtn) {
     submitBtn.addEventListener("click", (e) => {
-      if (isAuthenticated()) {
+      if (isProfileComplete()) {
         // The form submission logic handles this normally with the event listener on the form
       } else {
         e.preventDefault();
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      if (isAuthenticated()) {
+      if (isProfileComplete()) {
         document.querySelector("#sub").disabled = true;
         document.querySelector("#sub").innerHTML = "submitting...";
         let data = new FormData(form);
