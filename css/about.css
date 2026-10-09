@@ -7,8 +7,14 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
-div.info { height: 100%; }
+div.info {
+    height: 100%;
+    flex-grow: 1;
+}
 .info div {
     padding: 50px;
     width: 60%;
