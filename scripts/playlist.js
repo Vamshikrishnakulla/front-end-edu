@@ -353,13 +353,16 @@ const coursesData = [
     }
 ];
 
-let choosedCourse = localStorage.getItem('subjectcode');
+const rawCode = localStorage.getItem('subjectcode');
+const codeIndex = Number.parseInt(rawCode, 10);
 
-if (choosedCourse == undefined || choosedCourse == null) {
-    alert("Please, Choose the subject.");
+let choosedCourse;
+
+if (rawCode === null || Number.isNaN(codeIndex) || codeIndex < 0 || codeIndex >= coursesData.length) {
+    alert("Please, Choose a valid subject from the catalog.");
     window.location.assign("category.html");
 } else {
-    choosedCourse = parseInt(choosedCourse, 10);
+    choosedCourse = codeIndex;
 }
 
 /**
@@ -367,13 +370,12 @@ if (choosedCourse == undefined || choosedCourse == null) {
  * @returns {void}
  */
 function webCheck() {
-    const course = coursesData.find(c => c.id === choosedCourse);
+    if (choosedCourse === undefined) return;
+    const course = coursesData[choosedCourse];
     const link = course ? course.webLink : "#";
 
-    if (link == null || link == undefined) {
-        alert("Sorry, currently no Web-Playlist avaliable for the selected subject, will get added soon.(null)");
-    } else if (link == "#") {
-        alert("oops!!!,.. currently no Web-Playlist avaliable for the selected subject, will get upadated soon.#Till then try other resources.");
+    if (!link || link === "#" || link === "null") {
+        alert("Resource content for this subject is coming soon.");
     } else {
         document.getElementById("playlist1").href = link;
         document.getElementById("playlist1").target = "_blank";
@@ -385,13 +387,12 @@ function webCheck() {
  * @returns {void}
  */
 function notebookcheck() {
-    const course = coursesData.find(c => c.id === choosedCourse);
+    if (choosedCourse === undefined) return;
+    const course = coursesData[choosedCourse];
     const link = course ? course.noteBook : "#";
 
-    if (link == null || link == undefined) {
-        alert("Sorry, currently no NoteBook avaliable for the selected subject, will get added soon.(null)");
-    } else if (link == "#") {
-        alert("oops!!!,.. currently no NoteBook avaliable for the selected subject, will get upadated soon.#Till then try other resources.");
+    if (!link || link === "#" || link === "null") {
+        alert("Resource content for this subject is coming soon.");
     } else {
         document.getElementById("playlist3").href = link;
         document.getElementById("playlist3").target = "_blank";
@@ -413,7 +414,8 @@ function language(value) {
     } else {
         localStorage.setItem('language', value);
         let lan = localStorage.getItem('language');
-        const course = coursesData.find(c => c.id === choosedCourse);
+        if (choosedCourse === undefined) return;
+        const course = coursesData[choosedCourse];
         let link = "#";
 
         if (course) {
@@ -426,10 +428,8 @@ function language(value) {
             }
         }
 
-        if (link == null || link == undefined) {
-            alert("Sorry, currently no Playlist avaliable for the selected language, will get added soon.(null)");
-        } else if (link == "#") {
-            alert("oops!!!,.. currently no Playlist avaliable for the selected language, will get upadated soon.#Till then try in other language.");
+        if (!link || link === "#" || link === "null") {
+            alert("Resource content for this subject is coming soon.");
         } else {
             document.getElementById("parachange").innerHTML = "You have choosed to learn " + localStorage.getItem("subject") + " in language " + lan + ".";
             document.getElementById("playlist2").href = link;
