@@ -28,6 +28,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const discussLink = document.getElementById("discussLink");
     if (discussLink) {
-        discussLink.addEventListener('click', checkStorageForPlaylist);
+        const aTag = discussLink.querySelector("a");
+        if (isAuthenticated()) {
+            if (aTag) {
+                aTag.innerHTML = "💬 Open Discussion Room";
+                aTag.href = "#discussion";
+            }
+        } else {
+            if (aTag) {
+                aTag.innerHTML = "🔒 Please, Login to continue.";
+                aTag.href = "login.html";
+            }
+        }
+        discussLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            checkStorageForPlaylist();
+        });
     }
 });
