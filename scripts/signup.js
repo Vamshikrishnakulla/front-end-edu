@@ -32,9 +32,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitBtn = document.getElementById("sub");
   if (submitBtn) {
     submitBtn.addEventListener("click", (e) => {
-      if (isProfileComplete()) {
-        // The form submission logic handles this normally with the event listener on the form
-      } else {
+      inputs.forEach((inputData) => {
+        const inputElement = document.getElementById(inputData.id);
+        if (inputElement) {
+          let val = inputElement.value;
+          if (inputData.key === "email") {
+            val = val.trim().toLowerCase();
+          } else if (inputData.key === "branch") {
+            val = val.trim().toUpperCase();
+          } else {
+            val = val.trim();
+          }
+          localStorage.setItem(inputData.key, val);
+        }
+      });
+
+      if (!isProfileComplete()) {
         e.preventDefault();
         alert("Please, Fill all the required feilds.");
       }
@@ -46,27 +59,29 @@ document.addEventListener("DOMContentLoaded", () => {
   if (form) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
+
+      let data = new FormData(form);
+
+      // Normalize inputs before they are sent and before checking isProfileComplete
+      inputs.forEach((inputData) => {
+        const inputElement = document.getElementById(inputData.id);
+        if (inputElement) {
+          let val = inputElement.value;
+          if (inputData.key === "email") {
+            val = val.trim().toLowerCase();
+          } else if (inputData.key === "branch") {
+            val = val.trim().toUpperCase();
+          } else {
+            val = val.trim();
+          }
+          localStorage.setItem(inputData.key, val);
+          data.set(inputElement.name || inputData.id, val);
+        }
+      });
+
       if (isProfileComplete()) {
         document.querySelector("#sub").disabled = true;
         document.querySelector("#sub").innerHTML = "submitting...";
-        let data = new FormData(form);
-
-        // Also normalize inputs before they are sent, or just ensure localStorage captures them correctly on submit
-        inputs.forEach((inputData) => {
-          const inputElement = document.getElementById(inputData.id);
-          if (inputElement) {
-            let val = inputElement.value;
-            if (inputData.key === "email") {
-              val = val.trim().toLowerCase();
-            } else if (inputData.key === "branch") {
-              val = val.trim().toUpperCase();
-            } else {
-              val = val.trim();
-            }
-            localStorage.setItem(inputData.key, val);
-            data.set(inputElement.name || inputData.id, val); // Try to update FormData as well if possible, or assume it's good
-          }
-        });
 
         fetch(
           "https://script.google.com/macros/s/AKfycbyWPijfaI3oVMyEC_WgQLoyr8mkkz85nZohC7zIhDu-OqUN6tihccRLAMAgBChB94Xw/exec",
@@ -78,8 +93,9 @@ document.addEventListener("DOMContentLoaded", () => {
         )
           .then((res) => res.text())
           .then((data) => {
+            localStorage.removeItem("isLoggedIn");
             document.querySelector("#sub").innerHTML = "success";
-            alert("Registered/{already} sucessfully.Please Login now.");
+            alert("Registered successfully! Please login now.");
             window.location.assign("login.html");
           });
       }

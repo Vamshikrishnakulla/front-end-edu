@@ -27,18 +27,21 @@ function isAuthenticated() {
  * @returns {void}
  */
 function checkLogin(inputEmail, inputPassword) {
+    if (!isProfileComplete()) {
+        alert("Please signup for the website and login again.");
+        window.location.assign("signup.html");
+        return;
+    }
+
     const cleanEmail = (inputEmail || "").trim().toLowerCase();
     const cleanPass = (inputPassword || "").trim();
 
     const storedEmail = (localStorage.getItem("email") || "").trim().toLowerCase();
     const storedPass = (localStorage.getItem("key") || "").trim();
 
-    if (!storedEmail && !storedPass) {
-        alert("Please signup for the website and login again.");
-        window.location.assign("signup.html");
-    } else if (storedEmail === cleanEmail && storedPass === cleanPass) {
+    if (storedEmail === cleanEmail && storedPass === cleanPass) {
         localStorage.setItem("isLoggedIn", "true");
-        alert("Login success, you can now access the syllabus.");
+        alert("Login success!");
         window.location.assign("category.html");
     } else {
         alert("Incorrect details, please enter correct details.");

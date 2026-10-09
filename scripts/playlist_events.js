@@ -27,9 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const discussLink = document.getElementById("discussLink");
+    const demoElement = document.getElementById("demo");
     if (discussLink) {
         const aTag = discussLink.querySelector("a");
         if (isAuthenticated()) {
+            if (demoElement && localStorage.getItem('name')) {
+                demoElement.innerHTML = localStorage.getItem('name');
+            }
             if (aTag) {
                 aTag.innerHTML = "💬 Open Discussion Room";
                 aTag.href = "#discussion";
