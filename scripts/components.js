@@ -5,7 +5,7 @@
  * @type {string}
  */
 const headerHTML = `
-    <nav>
+    <nav aria-label="Main Navigation">
         <span id="logo"><img class="logoimg" src="images/logoimg.jpeg" alt="logo.jpeg"></span>
         <button id="logo-div-open" class="logoitems" aria-label="navbars">
             <span class="logoitem"></span>
@@ -81,6 +81,18 @@ function changenav(val) {
     }
 }
 
+/**
+ * Checks if the user is authenticated by verifying required keys in localStorage.
+ * @returns {boolean} True if authenticated, false otherwise.
+ */
+function isAuthenticated() {
+    const requiredKeys = ['name', 'email', 'key', 'college', 'addno'];
+    return requiredKeys.every(key => {
+        const value = localStorage.getItem(key);
+        return value !== null && value.trim() !== '';
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const headerPlaceholder = document.getElementById("header-placeholder");
     if (headerPlaceholder) {
@@ -94,6 +106,52 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         if (closeBtn) {
             closeBtn.addEventListener("click", () => changenav(0));
+        }
+
+        if (isAuthenticated()) {
+            const rightContainer = headerPlaceholder.querySelector(".right");
+            if (rightContainer) {
+                // Find and remove SignUp and Login links
+                const signUpLink = rightContainer.querySelector('a[href="signup.html"]');
+                const loginLink = rightContainer.querySelector('a[href="login.html"]');
+
+                if (signUpLink && signUpLink.parentElement) {
+                    signUpLink.parentElement.remove();
+                }
+                if (loginLink && loginLink.parentElement) {
+                    loginLink.parentElement.remove();
+                }
+
+                const name = window.localStorage.getItem("name") || "User";
+
+                const welcomeLi = document.createElement("li");
+                welcomeLi.innerHTML = `<span aria-label="User Profile">Welcome, <strong>${name}</strong></span>`;
+                rightContainer.appendChild(welcomeLi);
+
+                const logoutLi = document.createElement("li");
+                logoutLi.innerHTML = `<a href="#" id="logout-btn" aria-label="Logout of your account">Logout</a>`;
+                rightContainer.appendChild(logoutLi);
+
+                const logoutBtn = document.getElementById("logout-btn");
+                if (logoutBtn) {
+                    logoutBtn.addEventListener("click", (e) => {
+                        e.preventDefault();
+
+                        const keysToRemove = ['name', 'email', 'key', 'college', 'addno', 'university', 'branch'];
+                        keysToRemove.forEach(key => localStorage.removeItem(key));
+
+                        welcomeLi.remove();
+                        logoutLi.remove();
+
+                        if (signUpLink && loginLink) {
+                            rightContainer.appendChild(signUpLink.parentElement);
+                            rightContainer.appendChild(loginLink.parentElement);
+                        }
+
+                        window.location.assign('category.html');
+                    });
+                }
+            }
         }
     }
 
