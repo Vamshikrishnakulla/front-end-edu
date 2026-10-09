@@ -199,10 +199,33 @@ div.bottom {
         text-align: left;
     }
 
+    nav #navdisplay {
+        display: none;
+        width: 100%;
+        background-color: #333;
+    }
+
+    nav li.ali,
+    nav .right,
+    nav .right li {
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+
+    nav .user-greeting {
+        display: block;
+        padding: 10px 18px;
+        color: #ffffff !important;
+        white-space: normal;
+        word-break: break-word;
+    }
+
     nav input {
-        display: inline-block;
-        width: 70%;
-        margin: 10px 0 10px 10px;
+        display: block;
+        width: calc(100% - 36px);
+        margin: 10px 18px;
     }
 
 }

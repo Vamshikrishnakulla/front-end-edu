@@ -98,9 +98,14 @@ div.hold {
         margin:0;
     }
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
     .responsive {
         width: 100%;
+        float: none;
+        padding: 10px 0;
+    }
+    div.hold {
+        width: 95%;
     }
     div.gallery img {
         opacity: 1;
