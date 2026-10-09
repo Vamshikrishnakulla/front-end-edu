@@ -15,7 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputElement = document.getElementById(inputData.id);
     if (inputElement) {
       inputElement.addEventListener("focusout", (e) => {
-        localStorage.setItem(inputData.key, e.target.value);
+        let val = e.target.value;
+        if (inputData.key === "email") {
+          val = val.trim().toLowerCase();
+        } else if (inputData.key === "branch") {
+          val = val.trim().toUpperCase();
+        } else {
+          val = val.trim();
+        }
+        localStorage.setItem(inputData.key, val);
       });
       inputElement.removeAttribute("onfocusout");
     }
@@ -42,6 +50,24 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#sub").disabled = true;
         document.querySelector("#sub").innerHTML = "submitting...";
         let data = new FormData(form);
+
+        // Also normalize inputs before they are sent, or just ensure localStorage captures them correctly on submit
+        inputs.forEach((inputData) => {
+          const inputElement = document.getElementById(inputData.id);
+          if (inputElement) {
+            let val = inputElement.value;
+            if (inputData.key === "email") {
+              val = val.trim().toLowerCase();
+            } else if (inputData.key === "branch") {
+              val = val.trim().toUpperCase();
+            } else {
+              val = val.trim();
+            }
+            localStorage.setItem(inputData.key, val);
+            data.set(inputElement.name || inputData.id, val); // Try to update FormData as well if possible, or assume it's good
+          }
+        });
+
         fetch(
           "https://script.google.com/macros/s/AKfycbyWPijfaI3oVMyEC_WgQLoyr8mkkz85nZohC7zIhDu-OqUN6tihccRLAMAgBChB94Xw/exec",
           {

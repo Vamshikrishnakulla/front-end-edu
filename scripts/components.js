@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const name = window.localStorage.getItem("name") || "User";
 
                 const welcomeLi = document.createElement("li");
-                welcomeLi.innerHTML = `<span aria-label="User Profile">Welcome, <strong>${name}</strong></span>`;
+                welcomeLi.innerHTML = `<span class="user-greeting" aria-label="User Profile">Welcome, <strong>${name}</strong></span>`;
                 rightContainer.appendChild(welcomeLi);
 
                 const logoutLi = document.createElement("li");

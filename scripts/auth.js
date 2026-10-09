@@ -5,11 +5,11 @@
  * @returns {boolean} True if user profile is complete, otherwise false.
  */
 function isAuthenticated() {
-    return localStorage.getItem("name") !== null &&
-           localStorage.getItem("addno") !== null &&
-           localStorage.getItem("email") !== null &&
-           localStorage.getItem("key") !== null &&
-           localStorage.getItem("college") !== null;
+    const requiredKeys = ['name', 'email', 'key', 'college', 'addno'];
+    return requiredKeys.every(key => {
+        const value = localStorage.getItem(key);
+        return value !== null && value.trim() !== '';
+    });
 }
 
 /**
@@ -18,18 +18,21 @@ function isAuthenticated() {
  * @param {string} pass - The user's input password.
  * @returns {void}
  */
-function checkLogin(email, pass) {
-    const actualemail = localStorage.getItem("email");
-    const actualpass = localStorage.getItem("key");
+function checkLogin(inputEmail, inputPassword) {
+    const cleanEmail = (inputEmail || "").trim().toLowerCase();
+    const cleanPass = (inputPassword || "").trim();
 
-    if (actualemail == undefined && actualpass == undefined) {
-        alert("please signup for the website and login again.");
+    const storedEmail = (localStorage.getItem("email") || "").trim().toLowerCase();
+    const storedPass = (localStorage.getItem("key") || "").trim();
+
+    if (!storedEmail && !storedPass) {
+        alert("Please signup for the website and login again.");
         window.location.assign("signup.html");
-    } else if (actualemail === email && actualpass === pass) {
+    } else if (storedEmail === cleanEmail && storedPass === cleanPass) {
         alert("Login success, you can now access the syllabus.");
         window.location.assign("category.html");
     } else {
-        alert("incorrect details, please enter correct details.");
+        alert("Incorrect details, please enter correct details.");
     }
 }
 

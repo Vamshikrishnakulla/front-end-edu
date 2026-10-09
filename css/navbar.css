@@ -240,3 +240,39 @@ div.bottom {
     background: #f1f1f1;
 
 }
+/* Ensure user greeting matches header typography and alignment */
+nav .right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+nav .right li {
+  display: flex;
+  align-items: center;
+}
+
+nav .user-greeting {
+  color: #ffffff !important;
+  font-size: 0.95rem;
+  padding: 0 12px;
+  white-space: nowrap;
+}
+
+nav .user-greeting strong {
+  color: #30e3cb; /* Accent color matching button hover state */
+  font-weight: 700;
+}
+
+nav #logout-btn {
+  color: #ffffff;
+  display: block;
+  padding: 14px 18px;
+  text-decoration: none;
+}
+
+nav #logout-btn:hover {
+  background-color: #ff4d4d;
+  color: #ffffff;
+  border-radius: 4px;
+}
