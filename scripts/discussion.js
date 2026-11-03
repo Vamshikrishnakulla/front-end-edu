@@ -57,6 +57,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // ==========================================
+// Error Handling
+// ==========================================
+function showErrorBanner(message) {
+    const container = document.getElementById('error-banner-container');
+    if (!container) return;
+
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'api-error-banner';
+    errorDiv.innerHTML = `
+        <span>${escapeHTML(message)}</span>
+        <button class="close-error-btn" aria-label="Close error" onclick="this.parentElement.remove();">&times;</button>
+    `;
+    container.appendChild(errorDiv);
+}
+
+// ==========================================
 // API Interaction & Mock Interceptor
 // ==========================================
 async function apiCall(action, payload = {}) {
@@ -84,9 +100,13 @@ async function apiCall(action, payload = {}) {
         }
 
         const response = await fetch(url, options);
+        if (!response.ok) {
+             throw new Error(`HTTP error! status: ${response.status}`);
+        }
         return await response.json();
     } catch (error) {
         console.error("API Error:", error);
+        showErrorBanner(`Connection Error: ${error.message}. Please try again.`);
         return { success: false, error: error.message };
     }
 }
@@ -148,7 +168,7 @@ async function handleMockApi(action, payload) {
 
     if (action === 'GET_THREADS') {
         const { subjectcode, page, limit } = payload;
-        const validQs = db.questions.filter(q => q.subjectcode === subjectcode && !q.is_deleted);
+        const validQs = db.questions.filter(q => String(q.subjectcode) === String(subjectcode) && !q.is_deleted);
         validQs.sort((a, b) => b.timestamp - a.timestamp);
 
         const startIndex = (page - 1) * limit;
@@ -311,7 +331,7 @@ async function handlePostQuestion(e) {
         // Optimistically reload page 1
         loadThreads(1);
     } else {
-        alert("Error posting question: " + (res.error || "Unknown"));
+        showErrorBanner("Error posting question: " + (res.error || "Unknown"));
     }
 
     submitBtn.disabled = false;
@@ -376,7 +396,7 @@ async function submitAnswer(questionId, body, textarea, btn) {
         // Optimistically reload page 1 to see the answer
         loadThreads(1);
     } else {
-        alert("Error posting answer.");
+        showErrorBanner("Error posting answer.");
         btn.disabled = false;
         btn.textContent = 'Submit Answer';
     }
@@ -399,7 +419,7 @@ async function handleUpvote(targetId, btnEl) {
         }
         btnEl.style.color = '#11999e';
     } else {
-        alert(res.error || "Could not upvote.");
+        showErrorBanner(res.error || "Could not upvote.");
         btnEl.disabled = false;
     }
 }
@@ -415,7 +435,7 @@ async function handleDelete(targetId) {
     if (res.success) {
         loadThreads(1); // Reload to reflect deletion
     } else {
-        alert("Error deleting post: " + (res.error || "Unauthorized"));
+        showErrorBanner("Error deleting post: " + (res.error || "Unauthorized"));
     }
 }
 
@@ -432,7 +452,7 @@ async function handleEdit(targetId, currentBody) {
     if (res.success) {
         loadThreads(1); // Reload to reflect changes
     } else {
-        alert("Error editing post: " + (res.error || "Unauthorized"));
+        showErrorBanner("Error editing post: " + (res.error || "Unauthorized"));
     }
 }
 
@@ -465,10 +485,10 @@ function createThreadHTML(thread) {
                 </div>
                 <div class="question-content">
                     <h3>${escapeHTML(thread.title)}</h3>
-                    <div class="meta-info">
+                    <div class="question-meta">
                         Asked by <strong>${escapeHTML(thread.author_name)}</strong> &bull; ${formatDate(thread.timestamp)}
                     </div>
-                    <div class="post-body">${escapeHTML(thread.body).replace(/\n/g, '<br>')}</div>
+                    <div class="question-body">${escapeHTML(thread.body).replace(/\n/g, '<br>')}</div>
 
                     <div class="post-actions">
                         ${isOwner ? `
@@ -504,10 +524,10 @@ function createAnswerHTML(answer, isAccepted) {
             </div>
             <div class="answer-content">
                 ${isAccepted ? `<div class="accepted-badge">★ Accepted Solution</div>` : ''}
-                <div class="meta-info">
+                <div class="question-meta">
                     <strong>${escapeHTML(answer.author_name)}</strong> &bull; ${formatDate(answer.timestamp)}
                 </div>
-                <div class="post-body">${escapeHTML(answer.body).replace(/\n/g, '<br>')}</div>
+                <div class="answer-body">${escapeHTML(answer.body).replace(/\n/g, '<br>')}</div>
                 <div class="post-actions">
                     ${isOwner ? `
                         <button class="action-btn edit-post-btn" data-id="${answer.answer_id}" data-body="${escapeHTML(answer.body)}">Edit</button>

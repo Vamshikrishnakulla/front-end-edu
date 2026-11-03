@@ -94,10 +94,16 @@ body {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   margin-bottom: 20px;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .question-header {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
   margin-bottom: 10px;
 }
@@ -134,21 +140,33 @@ body {
 .question-content h3 {
   margin: 0 0 5px 0;
   color: #333;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
 }
 
-.meta-info {
+.question-meta {
   font-size: 0.8rem;
   color: #777;
   margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
 }
 
-.post-body {
+.post-body, .question-body, .answer-body {
   line-height: 1.5;
   margin-bottom: 10px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .post-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   font-size: 0.85rem;
 }
@@ -180,12 +198,18 @@ body {
 
 .answer-card {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
   padding: 15px;
   background: #fdfdfd;
   border: 1px solid #eaeaea;
   border-radius: 6px;
   margin-bottom: 15px;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .answer-content {
@@ -236,4 +260,74 @@ body {
     color: red;
     font-size: 0.8rem;
     margin-top: 5px;
+}
+
+#questions-container {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* API Error Banner */
+.api-error-banner {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  border-left: 5px solid #c62828;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.api-error-banner .close-error-btn {
+  background: none;
+  border: none;
+  color: #c62828;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 10px;
+}
+
+/* Mobile Responsiveness */
+@media only screen and (max-width: 600px) {
+  .discussion-main {
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .post-question-section {
+    padding: 15px;
+    width: 90%;
+    margin: 10px auto 20px auto;
+  }
+
+  .question-card, .answer-card {
+    padding: 12px;
+    width: 90%;
+    margin: 10px auto;
+  }
+
+  .question-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .vote-section {
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  #post-question-form input,
+  #post-question-form textarea,
+  .reply-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
 }
