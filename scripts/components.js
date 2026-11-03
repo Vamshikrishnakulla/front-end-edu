@@ -138,6 +138,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         e.preventDefault();
 
                         localStorage.removeItem("isLoggedIn");
+                        localStorage.removeItem("name");
+                        localStorage.removeItem("email");
 
                         welcomeLi.remove();
                         logoutLi.remove();
