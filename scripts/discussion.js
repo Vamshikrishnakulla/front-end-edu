@@ -1,4 +1,4 @@
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1QpAXeSxUkRGVbRfwIi2LRMk2ZdACr7yyRN7F5Z4pilo9mEhOWRYB20Ba5Ley9Nf7zQ/exec';
+const APPS_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
 
 let state = {
     threads: [],
@@ -486,7 +486,7 @@ function createThreadHTML(thread) {
                 <div class="question-content">
                     <h3>${escapeHTML(thread.title)}</h3>
                     <div class="question-meta">
-                        Asked by |<strong>${escapeHTML(thread.author_name)}</strong> &bull; ${formatDate(thread.timestamp)}
+                        Asked by <strong>${escapeHTML(thread.author_name)}</strong> &bull; ${formatDate(thread.timestamp)}
                     </div>
                     <div class="question-body">${escapeHTML(thread.body).replace(/\n/g, '<br>')}</div>
 

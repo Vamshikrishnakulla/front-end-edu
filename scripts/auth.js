@@ -1,14 +1,14 @@
 // @ts-check
 
-const AUTH_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyWPijfaI3oVMyEC_WgQLoyr8mkkz85nZohC7zIhDu-OqUN6tihccRLAMAgBChB94Xw/exec';
+const AUTH_APPS_SCRIPT_URL = 'YOUR_AUTH_APPS_SCRIPT_URL_HERE';
 
 /**
  * Validates whether mandatory user profile keys exist in localStorage.
  * @returns {boolean} True if user profile is complete, otherwise false.
  */
 function isProfileComplete() {
-    const requiredKeys = ['name', 'email', 'key', 'college', 'addno'];
-    return requiredKeys.every(key => {
+    const requiredKeys = ['name', 'email'];
+    return isAuthenticated() && requiredKeys.every(key => {
         const value = localStorage.getItem(key);
         return value !== null && value.trim() !== '';
     });
@@ -140,11 +140,14 @@ async function handleMockAuthApi(action, payload) {
         const user = db.find(u => String(u.email).trim().toLowerCase() === email);
         if (user) {
             if (String(user.key).trim() === key) {
-                // Return everything except created_at and user_id for client safety/relevance
-                const userObj = { ...user };
-                delete userObj.user_id;
-                delete userObj.created_at;
-                return { success: true, user: userObj, message: "Login success!" };
+                return {
+                    success: true,
+                    user: {
+                        name: user.name,
+                        email: user.email
+                    },
+                    message: "Login success!"
+                };
             } else {
                 return { success: false, error: "Incorrect details, please enter correct details." };
             }

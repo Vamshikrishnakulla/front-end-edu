@@ -39,7 +39,7 @@ body {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   margin-bottom: 30px;
 }
 
@@ -67,7 +67,7 @@ body {
   background: #11cdd4;
   background-image: linear-gradient(to bottom, #11cdd4, #11999e);
   border-radius: 8px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #ffffff;
   font-size: 0.9rem;
   border: 0;
@@ -83,8 +83,8 @@ body {
 }
 
 .btn:disabled {
-  background: #ccc;
-  cursor: not-allowed;
+    background: #ccc;
+    cursor: not-allowed;
 }
 
 /* Question Cards */
@@ -92,7 +92,7 @@ body {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   margin-bottom: 20px;
   max-width: 100%;
   box-sizing: border-box;
@@ -156,9 +156,7 @@ body {
   hyphens: auto;
 }
 
-.post-body,
-.question-body,
-.answer-body {
+.post-body, .question-body, .answer-body {
   line-height: 1.5;
   margin-bottom: 10px;
   overflow-wrap: anywhere;
@@ -259,9 +257,9 @@ body {
 }
 
 .error-msg {
-  color: red;
-  font-size: 0.8rem;
-  margin-top: 5px;
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 5px;
 }
 
 #questions-container {
@@ -292,57 +290,40 @@ body {
   margin-left: 10px;
 }
 
-/* Mobile Responsiveness (<600px Viewport) */
-
+/* Mobile Responsiveness */
 @media only screen and (max-width: 600px) {
-  /* Main wrapper sets the 5% side gutters (90% total width) */
   .discussion-main {
     width: 90%;
     margin: 10px auto;
-    box-sizing: border-box;
-  }
-
-  /* Internal cards expand to fill 100% of discussion-main */
-  .post-question-section,
-  .question-card,
-  .answer-card {
-    width: 100%;
-    box-sizing: border-box;
-    margin: 10px 0;
-    padding: 12px;
-    /* Prevent long text/urls from overflowing mobile screen */
-    overflow-wrap: anywhere;
-    word-break: break-word;
   }
 
   .post-question-section {
-    margin-bottom: 20px;
     padding: 15px;
+    width: 90%;
+    margin: 10px auto 20px auto;
   }
 
-  /* Stack header elements vertically */
+  .question-card, .answer-card {
+    padding: 12px;
+    width: 90%;
+    margin: 10px auto;
+  }
+
   .question-header {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  /* Align vote arrow and counter horizontally */
   .vote-section {
     flex-direction: row;
-    align-items: center;
-    gap: 8px;
     margin-bottom: 10px;
   }
 
-  /* Full-width touch targets for mobile buttons */
-  .btn,
-  .action-btn {
+  .btn {
     width: 100%;
     text-align: center;
-    box-sizing: border-box;
   }
 
-  /* Ensure inputs fill container cleanly */
   #post-question-form input,
   #post-question-form textarea,
   .reply-form textarea {

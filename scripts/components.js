@@ -137,10 +137,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     logoutBtn.addEventListener("click", (e) => {
                         e.preventDefault();
 
-                        // Wipe all user profile and session data 
-                        localStorage.clear();
-                        window.location.assign('category.html');
-                        //localStorage.removeItem("isLoggedIn");
+                        localStorage.removeItem("isLoggedIn");
+                        localStorage.removeItem("name");
+                        localStorage.removeItem("email");
 
                         welcomeLi.remove();
                         logoutLi.remove();

@@ -36,13 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             if (response.success) {
-                // Populate localStorage with non-logged-in profile state if requested
-                // Note: Not setting 'isLoggedIn' until actual login occurs.
-                Object.keys(payload).forEach(k => {
-                    localStorage.setItem(k, payload[k]);
-                });
-
-                alert(response.message || "Registered successfully! Please login now.");
+                alert("Registered successfully! Please login now.");
                 window.location.assign("login.html");
             } else {
                 alert(response.error || "An error occurred during signup.");

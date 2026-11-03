@@ -24,14 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
             submitBtn.innerHTML = "Submit";
 
             if (response.success) {
-                // Populate localStorage with user profile fields returned from API
                 const user = response.user;
                 if (user) {
-                    Object.keys(user).forEach(k => {
-                        localStorage.setItem(k, user[k]);
-                    });
+                    localStorage.setItem("name", user.name);
+                    localStorage.setItem("email", user.email);
                 }
-                // Finally set the logged in state
                 localStorage.setItem("isLoggedIn", "true");
 
                 alert(response.message || "Login success!");
