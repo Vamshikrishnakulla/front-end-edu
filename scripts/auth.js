@@ -54,7 +54,7 @@ function checkLogin(inputEmail, inputPassword) {
  */
 function checkStorageForPlaylist() {
     if (isAuthenticated()) {
-        alert('Hello! This feature is currently under active development.');
+        window.location.assign("discussion.html");
     } else {
         alert('Please login to access the discussion room.');
         window.location.assign("login.html");

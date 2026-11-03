@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Hub - Discussion</title>
+    <!-- Use same fonts as playlist -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/discussion.css">
+</head>
+<body>
+    <!-- ================= HEADER ================= -->
+    <div id="header-placeholder"></div>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="discussion-main">
+        <div class="discussion-header">
+            <a href="playlist.html" id="back-to-playlist-btn" class="back-btn">&lt;&lt; Back to Playlist</a>
+            <h1 id="discussion-title">Discussion Forum</h1>
+        </div>
+
+        <section role="region" aria-label="Post a Question" class="post-question-section">
+            <form id="post-question-form">
+                <input type="text" id="question-title" placeholder="Question Title (e.g. Help with Ohm's Law)" required aria-label="Question Title">
+                <textarea id="question-body" placeholder="Provide details about your question..." required aria-label="Question Body"></textarea>
+                <button type="submit" id="submit-question-btn" class="btn">Submit Question</button>
+            </form>
+        </section>
+
+        <section role="region" aria-label="Questions and Answers" id="questions-container" aria-live="polite">
+            <!-- Questions will be dynamically loaded here -->
+            <div class="loading-state">Loading discussions...</div>
+        </section>
+
+        <button id="load-more-btn" class="btn load-more-btn" style="display: none;">Load More Questions</button>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <div id="footer-placeholder" class="footer"></div>
+
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/components.js"></script>
+    <script src="scripts/discussion.js"></script>
+</body>
+</html>

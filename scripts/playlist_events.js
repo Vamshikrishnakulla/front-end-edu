@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             if (aTag) {
                 aTag.innerHTML = "💬 Open Discussion Room";
-                aTag.href = "#discussion";
+                aTag.href = "discussion.html";
             }
         } else {
             if (aTag) {
