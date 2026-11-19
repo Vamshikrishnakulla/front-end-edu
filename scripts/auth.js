@@ -1,6 +1,6 @@
 // @ts-check
 
-const AUTH_APPS_SCRIPT_URL = 'YOUR_AUTH_APPS_SCRIPT_URL_HERE';
+const AUTH_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyWPijfaI3oVMyEC_WgQLoyr8mkkz85nZohC7zIhDu-OqUN6tihccRLAMAgBChB94Xw/exec';
 
 /**
  * Validates whether mandatory user profile keys exist in localStorage.
